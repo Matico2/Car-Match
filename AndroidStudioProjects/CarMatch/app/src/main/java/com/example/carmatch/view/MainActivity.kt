@@ -9,12 +9,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import com.example.carmatch1.R
-
 import com.example.carmatch1.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
-    
     private val firebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
@@ -35,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             title = "CAR MATCH"
         }
         addMenuProvider(
-            object: MenuProvider{
+            object: MenuProvider {
                 override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                     menuInflater.inflate(R.menu.main, menu)
                 }

@@ -5,9 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.LoginActivity"
+    tools:context="com.example.carmatch.view.LoginActivity"
     android:background="@color/colorBlueGray" >
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialIcon"
         android:layout_width="150dp"
@@ -114,5 +113,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

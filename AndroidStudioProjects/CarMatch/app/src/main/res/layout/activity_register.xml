@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.RegisterActivity">
-
+    tools:context="com.example.carmatch.view.RegisterActivity">
     <include
         android:id="@+id/includeToolbarApp"
         layout="@layout/toolbar_app"
@@ -142,6 +141,5 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputPassword" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
