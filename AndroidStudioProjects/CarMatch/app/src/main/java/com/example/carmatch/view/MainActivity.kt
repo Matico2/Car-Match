@@ -45,6 +45,11 @@ class MainActivity : AppCompatActivity() {
                                 Intent(applicationContext, ProfileActivity::class.java)
                             )
                         }
+                        R.id.item_Vehicle ->{
+                            startActivity(
+                                Intent(applicationContext, VehicleActivity::class.java)
+                            )
+                        }
                         R.id.item_Exit->{
                             logout()
                         }

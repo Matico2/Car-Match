@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/item_Profile"
-        android:title="@string/profile" />
+        android:icon="@drawable/profile_icon"
+        android:title="@string/profile"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item_Vehicle"
-        android:title="@string/vehicles" />
+        android:icon="@drawable/vehicle_icon"
+        android:title="@string/vehicles"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item_Exit"
-        android:title="@string/exit" />
+        android:title="@string/exit"
+        app:showAsAction="ifRoom" />
 </menu>
