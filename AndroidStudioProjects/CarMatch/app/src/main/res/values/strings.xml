@@ -13,4 +13,21 @@
     <string name="profile">Perfil</string>
     <string name="vehicles">Veículos</string>
     <string name="exit">Sair</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="share">Compartilhar</string>
+    <string name="profile_photo">Foto de Perfil</string>
+    <string name="add_photo">Adicionar foto</string>
+    <string name="edit_profile">Editar Perfil</string>
+    <string name="change_password">Alterar senha</string>
+    <string name="txt_user_name">Nome do usário</string>
+    <string name="txt_email_user">Email usário</string>
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="digit_email">Digite seu e-mail</string>
+    <string name="digit_name">Digite seu nome</string>
+    <string name="digit_city">Digite sua cidade</string>
+    <string name="digit_cpf">Digite seu CPF</string>
+    <string name="digit_date">Digite sua data de nascimento</string>
+    <string name="delete_account">Deletar conta.</string>
 </resources>

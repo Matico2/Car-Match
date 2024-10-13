@@ -2,7 +2,10 @@ package com.example.carmatch.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
+import com.example.carmatch.utils.cpfMask
 import com.example.carmatch.utils.showMenssage
 import com.example.carmatch1.databinding.ActivityRegisterBinding
 import com.google.android.material.textfield.TextInputLayout
@@ -14,7 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterActivity : AppCompatActivity() {
     
-    // campos tabela
+    // Campos tabela
     private lateinit var name: String
     private lateinit var email: String
     private lateinit var city: String
@@ -29,7 +32,6 @@ class RegisterActivity : AppCompatActivity() {
         FirebaseFirestore.getInstance()
     }
     
-    
     private val binding by lazy {
         ActivityRegisterBinding.inflate(layoutInflater)
     }
@@ -37,6 +39,10 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        
+        // Aplicando a máscara ao EditText do CPF
+        val cpfEditText = binding.textInputCPF.editText
+        cpfEditText?.addTextChangedListener(cpfMask.mask("###.###.###-##", cpfEditText))
         
         initializeToolbar()
         initializeEventClick()
@@ -55,7 +61,7 @@ class RegisterActivity : AppCompatActivity() {
             if (this.validateFields()) {
                 registerUSer(name, email, city, cpf, date, password)
             } else {
-            
+                // Tratamento de erro se necessário
             }
         }
     }
@@ -72,31 +78,26 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener { result ->
                 if (result.isSuccessful) {
                     val idUser = result.result.user?.uid
-                    if(idUser != null){
+                    if (idUser != null) {
                         val user = com.example.carmatch.model.User(
-                            idUser, name, email,city, cpf, date, password
+                            idUser, name, email, city, cpf, date, password
                         )
                         saveUserFirestore(user)
-                        
-                        
                     }
-                    
                 }
-                
             }.addOnFailureListener { erro ->
                 try {
                     throw erro
                 } catch (errorWeakPassword: FirebaseAuthWeakPasswordException) {
                     showMenssage("Sua senha está fraca. Por favor, digite uma senha com letras, números e caracteres especiais.")
                     errorWeakPassword.printStackTrace()
-                }  catch (errorEmailConflict: FirebaseAuthUserCollisionException) {
-                    showMenssage("E-mail ja cadastrado.")
+                } catch (errorEmailConflict: FirebaseAuthUserCollisionException) {
+                    showMenssage("E-mail já cadastrado.")
                     errorEmailConflict.printStackTrace()
-                }catch (errorIvalidCredentials: FirebaseAuthInvalidCredentialsException) {
+                } catch (errorInvalidCredentials: FirebaseAuthInvalidCredentialsException) {
                     showMenssage("E-mail inválido, digite outro e-mail.")
-                    errorIvalidCredentials.printStackTrace()
+                    errorInvalidCredentials.printStackTrace()
                 }
-                
             }
     }
     
@@ -109,9 +110,8 @@ class RegisterActivity : AppCompatActivity() {
                 showMenssage("Sucesso ao realizar o seu cadastro :)")
                 startActivity(
                     Intent(applicationContext, MainActivity::class.java)
-                
                 )
-            }.addOnFailureListener{
+            }.addOnFailureListener {
                 showMenssage("Erro ao fazer seu cadastro :(")
             }
     }

@@ -11,8 +11,4 @@
         android:icon="@drawable/vehicle_icon"
         android:title="@string/vehicles"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/item_Exit"
-        android:title="@string/exit"
-        app:showAsAction="ifRoom" />
 </menu>
