@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="colorBlueGray">#586471</color>
+    <color name="colorDarkBlue">#22363F</color>
+    <color name="colorGray">#7C7A82</color>
+    <color name="colorLightBeige">#E4B394</color>
+    <color name="colorLightOrange">#F4A57A</color>
+    <color name="colorVibrantOrange">#F4791D</color>
+    <color name="red">#FF0000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="action_settings">Settings</string>
+    <string name="add_photo">Adicionar foto</string>
+    <string name="app_name">Car Match</string>
+    <string name="cancel">Cancelar</string>
+    <string name="change_password">Alterar senha</string>
+    <string name="delete_account">Deletar conta.</string>
+    <string name="digit_city">Digite sua cidade</string>
+    <string name="digit_cpf">Digite seu CPF</string>
+    <string name="digit_date">Digite sua data de nascimento</string>
+    <string name="digit_email">Digite seu e-mail</string>
+    <string name="digit_name">Digite seu nome</string>
+    <string name="edit_profile">Editar Perfil</string>
+    <string name="exit">Sair</string>
+    <string name="gcm_defaultSenderId" translatable="false">883450185865</string>
+    <string name="google_api_key" translatable="false">AIzaSyBA6lBy_jm8itmHCCGRfHRA7DjgQcLIGPY</string>
+    <string name="google_app_id" translatable="false">1:883450185865:android:7c789c89c9258aebc59e58</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBA6lBy_jm8itmHCCGRfHRA7DjgQcLIGPY</string>
+    <string name="google_storage_bucket" translatable="false">car-match-b5b86.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="profile">Perfil</string>
+    <string name="profile_photo">Foto de Perfil</string>
+    <string name="project_id" translatable="false">car-match-b5b86</string>
+    <string name="save">Salvar</string>
+    <string name="share">Compartilhar</string>
+    <string name="txt_email_user">Email usário</string>
+    <string name="txt_user_name">Nome do usário</string>
+    <string name="vehicles">Veículos</string>
+    <style name="Circle">
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="CustomToolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="titleTextColor">@color/colorDarkBlue</item>
+        <item name="subtitleTextColor">@color/colorDarkBlue</item>
+        <item name="navigationIconTint">@color/colorDarkBlue</item>
+        <item name="android:tint">@color/colorDarkBlue</item>
+        <item name="itemBackground">@color/colorDarkBlue </item>
+        <item name="android:textColorPrimary">@color/colorDarkBlue</item>
+        <item name="android:actionMenuTextColor">@color/colorDarkBlue</item>
+    </style>
+    <style name="Theme.CarMatch" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/colorVibrantOrange</item>
+        <item name="colorPrimaryVariant">@color/colorLightOrange</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/colorLightOrange</item>
+        <item name="colorSecondaryVariant">@color/colorLightOrange</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="toolbarStyle">@style/CustomToolbar</item>
+    </style>
+    <style name="Theme.CarMatch.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>
