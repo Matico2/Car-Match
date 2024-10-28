@@ -103,8 +103,6 @@ class ProfileActivity : AppCompatActivity() {
             .addOnFailureListener{showMenssage("Erro ao atualizar os dados do usuário.")}
     }
     
-    
-    
     // Função para solicitar permissões
     private fun permissions() {
         cameraPermission = ContextCompat.checkSelfPermission(
@@ -159,11 +157,13 @@ class ProfileActivity : AppCompatActivity() {
             title = "Seu Perfil"
             setDisplayHomeAsUpEnabled(true)
         }
+        toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
         addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.profile_menu, menu)
             }
-            
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 when (menuItem.itemId) {
                     R.id.action_share_profile -> shareProfile()
@@ -173,6 +173,7 @@ class ProfileActivity : AppCompatActivity() {
             }
         })
     }
+    
     
     // mostrando e-mail do usuário cadastrado
     

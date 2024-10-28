@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:2:1-81:12
+ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:2:1-86:12
+INJECTED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:2:1-86:12
 MERGED from [androidx.databinding:viewbinding:8.5.2] C:\Users\mathe\.gradle\caches\transforms-4\0e409617cffa48d38b3350ac4f10550f\transformed\viewbinding-8.5.2\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-storage-ktx:21.0.1] C:\Users\mathe\.gradle\caches\transforms-4\542633d5e285b6b67bca677657df0d13\transformed\firebase-storage-ktx-21.0.1\AndroidManifest.xml:2:1-18:12
 MERGED from [com.google.firebase:firebase-firestore-ktx:25.1.0] C:\Users\mathe\.gradle\caches\transforms-4\8b207a7ad1f32cd17fb9e734e26dd755\transformed\firebase-firestore-ktx-25.1.0\AndroidManifest.xml:2:1-18:12
@@ -161,8 +161,8 @@ ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:15:9-64
 application
-ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:18:5-79:19
-INJECTED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:18:5-79:19
+ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:18:5-84:19
+INJECTED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:18:5-84:19
 MERGED from [com.google.firebase:firebase-storage-ktx:21.0.1] C:\Users\mathe\.gradle\caches\transforms-4\542633d5e285b6b67bca677657df0d13\transformed\firebase-storage-ktx-21.0.1\AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.firebase:firebase-storage-ktx:21.0.1] C:\Users\mathe\.gradle\caches\transforms-4\542633d5e285b6b67bca677657df0d13\transformed\firebase-storage-ktx-21.0.1\AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.firebase:firebase-firestore-ktx:25.1.0] C:\Users\mathe\.gradle\caches\transforms-4\8b207a7ad1f32cd17fb9e734e26dd755\transformed\firebase-firestore-ktx-25.1.0\AndroidManifest.xml:8:5-16:19
@@ -265,27 +265,27 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\mathe\.gradle\cach
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:26:9-46
 	android:dataExtractionRules
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:20:9-65
-activity#com.example.carmatch.view.PhotosVehicleActivity
-ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:29:9-33:65
+activity#com.example.carmatch.view.DetailsVehicleActivity
+ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:29:9-33:64
 	android:parentActivityName
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:32:13-87
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:32:13-83
 	android:exported
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:31:13-37
 	android:theme
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:33:13-62
 	android:name
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:30:13-75
-activity#com.example.carmatch.view.EditVehicleActivity
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:30:13-76
+activity#com.example.carmatch.view.PhotosVehicleActivity
 ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:34:9-38:65
 	android:parentActivityName
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:37:13-83
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:37:13-87
 	android:exported
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:36:13-37
 	android:theme
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:38:13-62
 	android:name
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:35:13-73
-activity#com.example.carmatch.view.EditProfileActivity
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:35:13-75
+activity#com.example.carmatch.view.EditVehicleActivity
 ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:39:9-43:65
 	android:parentActivityName
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:42:13-83
@@ -295,7 +295,7 @@ ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidMan
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:43:13-62
 	android:name
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:40:13-73
-activity#com.example.carmatch.view.ChangePasswordActivity
+activity#com.example.carmatch.view.EditProfileActivity
 ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:44:9-48:65
 	android:parentActivityName
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:47:13-83
@@ -304,65 +304,75 @@ ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidMan
 	android:theme
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:48:13-62
 	android:name
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:45:13-76
-activity#com.example.carmatch.view.VehicleActivity
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:45:13-73
+activity#com.example.carmatch.view.ChangePasswordActivity
 ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:49:9-53:65
 	android:parentActivityName
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:52:13-80
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:52:13-83
 	android:exported
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:51:13-37
 	android:theme
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:53:13-62
 	android:name
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:50:13-69
-activity#com.example.carmatch.view.RegisterActivity
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:50:13-76
+activity#com.example.carmatch.view.VehicleActivity
 ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:54:9-58:65
 	android:parentActivityName
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:57:13-81
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:57:13-80
 	android:exported
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:56:13-37
 	android:theme
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:58:13-62
 	android:name
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:55:13-70
-activity#com.example.carmatch.view.ProfileActivity
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:55:13-69
+activity#com.example.carmatch.view.RegisterActivity
 ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:59:9-63:65
 	android:parentActivityName
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:62:13-80
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:62:13-81
 	android:exported
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:61:13-37
 	android:theme
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:63:13-62
 	android:name
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:60:13-69
-activity#com.example.carmatch.view.LoginActivity
-ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:64:9-74:20
-	android:label
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:67:13-45
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:60:13-70
+activity#com.example.carmatch.view.ProfileActivity
+ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:64:9-68:65
+	android:parentActivityName
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:67:13-80
 	android:exported
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:66:13-36
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:66:13-37
 	android:theme
 		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:68:13-62
 	android:name
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:65:13-67
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:69:13-73:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:70:17-69
-	android:name
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:70:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:72:17-77
-	android:name
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:72:27-74
-activity#com.example.carmatch.view.MainActivity
-ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:75:9-78:65
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:65:13-69
+activity#com.example.carmatch.view.LoginActivity
+ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:69:9-79:20
+	android:label
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:72:13-45
 	android:exported
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:77:13-37
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:71:13-36
 	android:theme
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:78:13-62
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:73:13-62
 	android:name
-		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:76:13-66
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:70:13-67
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:74:13-78:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:75:17-69
+	android:name
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:75:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:77:17-77
+	android:name
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:77:27-74
+activity#com.example.carmatch.view.MainActivity
+ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:80:9-83:65
+	android:exported
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:82:13-37
+	android:theme
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:83:13-62
+	android:name
+		ADDED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml:81:13-66
 uses-sdk
 INJECTED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\mathe\AndroidStudioProjects\CarMatch\app\src\main\AndroidManifest.xml

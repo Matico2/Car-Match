@@ -1,4 +1,4 @@
-com.example.carmatch1.test.app-core-1.6.1-0 C:\Users\mathe\.gradle\caches\transforms-4\71cac4e256ddacfdcaf5a7ba22c972e1\transformed\core-1.6.1\res
+com.example.carmatch1.test.app-core-1.6.1-0 C:\Users\mathe\.gradle\caches\transforms-4\23ab0198c2ae4edf15a1b30bc4b795c7\transformed\core-1.6.1\res
 com.example.carmatch1.test.app-androidTest-1 C:\Users\mathe\AndroidStudioProjects\CarMatch\app\build\generated\res\resValues\androidTest\debug
 com.example.carmatch1.test.app-mergeDebugAndroidTestResources-2 C:\Users\mathe\AndroidStudioProjects\CarMatch\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
 com.example.carmatch1.test.app-mergeDebugAndroidTestResources-3 C:\Users\mathe\AndroidStudioProjects\CarMatch\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir

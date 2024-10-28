@@ -4,15 +4,13 @@ package com.example.carmatch1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carmatch1.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -22,30 +20,12 @@ public final class FragmentVehicleListBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final FloatingActionButton btnAddPhoto;
-
-  @NonNull
-  public final ImageView imageVehicle;
-
-  @NonNull
-  public final TextView textVehicleBrand;
-
-  @NonNull
-  public final TextView textVehicleModel;
-
-  @NonNull
-  public final TextView textVehiclePrice;
+  public final RecyclerView RecyclerViewList;
 
   private FragmentVehicleListBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FloatingActionButton btnAddPhoto, @NonNull ImageView imageVehicle,
-      @NonNull TextView textVehicleBrand, @NonNull TextView textVehicleModel,
-      @NonNull TextView textVehiclePrice) {
+      @NonNull RecyclerView RecyclerViewList) {
     this.rootView = rootView;
-    this.btnAddPhoto = btnAddPhoto;
-    this.imageVehicle = imageVehicle;
-    this.textVehicleBrand = textVehicleBrand;
-    this.textVehicleModel = textVehicleModel;
-    this.textVehiclePrice = textVehiclePrice;
+    this.RecyclerViewList = RecyclerViewList;
   }
 
   @Override
@@ -75,38 +55,13 @@ public final class FragmentVehicleListBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_add_photo;
-      FloatingActionButton btnAddPhoto = ViewBindings.findChildViewById(rootView, id);
-      if (btnAddPhoto == null) {
+      id = R.id.RecyclerViewList;
+      RecyclerView RecyclerViewList = ViewBindings.findChildViewById(rootView, id);
+      if (RecyclerViewList == null) {
         break missingId;
       }
 
-      id = R.id.imageVehicle;
-      ImageView imageVehicle = ViewBindings.findChildViewById(rootView, id);
-      if (imageVehicle == null) {
-        break missingId;
-      }
-
-      id = R.id.textVehicleBrand;
-      TextView textVehicleBrand = ViewBindings.findChildViewById(rootView, id);
-      if (textVehicleBrand == null) {
-        break missingId;
-      }
-
-      id = R.id.textVehicleModel;
-      TextView textVehicleModel = ViewBindings.findChildViewById(rootView, id);
-      if (textVehicleModel == null) {
-        break missingId;
-      }
-
-      id = R.id.textVehiclePrice;
-      TextView textVehiclePrice = ViewBindings.findChildViewById(rootView, id);
-      if (textVehiclePrice == null) {
-        break missingId;
-      }
-
-      return new FragmentVehicleListBinding((ConstraintLayout) rootView, btnAddPhoto, imageVehicle,
-          textVehicleBrand, textVehicleModel, textVehiclePrice);
+      return new FragmentVehicleListBinding((ConstraintLayout) rootView, RecyclerViewList);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

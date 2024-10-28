@@ -37,6 +37,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    
 }
 
 dependencies {
@@ -57,5 +58,5 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.squareup.picasso:picasso:2.8") // picasso convertor de img para txt
-    
+   
 }

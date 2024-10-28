@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carmatch1.R;
@@ -24,17 +24,17 @@ public final class ActivityVehicleBinding implements ViewBinding {
   public final Button btnAddVehicle;
 
   @NonNull
-  public final ToolbarAppBinding includeMainToolbar;
+  public final FrameLayout fragmentContainer;
 
   @NonNull
-  public final RecyclerView recyclerViewVehicles;
+  public final ToolbarAppBinding includeMainToolbar;
 
   private ActivityVehicleBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnAddVehicle,
-      @NonNull ToolbarAppBinding includeMainToolbar, @NonNull RecyclerView recyclerViewVehicles) {
+      @NonNull FrameLayout fragmentContainer, @NonNull ToolbarAppBinding includeMainToolbar) {
     this.rootView = rootView;
     this.btnAddVehicle = btnAddVehicle;
+    this.fragmentContainer = fragmentContainer;
     this.includeMainToolbar = includeMainToolbar;
-    this.recyclerViewVehicles = recyclerViewVehicles;
   }
 
   @Override
@@ -70,6 +70,12 @@ public final class ActivityVehicleBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fragment_container;
+      FrameLayout fragmentContainer = ViewBindings.findChildViewById(rootView, id);
+      if (fragmentContainer == null) {
+        break missingId;
+      }
+
       id = R.id.includeMainToolbar;
       View includeMainToolbar = ViewBindings.findChildViewById(rootView, id);
       if (includeMainToolbar == null) {
@@ -77,14 +83,8 @@ public final class ActivityVehicleBinding implements ViewBinding {
       }
       ToolbarAppBinding binding_includeMainToolbar = ToolbarAppBinding.bind(includeMainToolbar);
 
-      id = R.id.recyclerViewVehicles;
-      RecyclerView recyclerViewVehicles = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerViewVehicles == null) {
-        break missingId;
-      }
-
       return new ActivityVehicleBinding((ConstraintLayout) rootView, btnAddVehicle,
-          binding_includeMainToolbar, recyclerViewVehicles);
+          fragmentContainer, binding_includeMainToolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

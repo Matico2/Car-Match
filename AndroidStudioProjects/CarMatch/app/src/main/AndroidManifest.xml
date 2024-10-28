@@ -13,7 +13,7 @@
         tools:ignore="SelectedPhotoAccess" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+        android:maxSdkVersion="34" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +26,11 @@
         android:theme="@style/Theme.CarMatch"
         tools:ignore="SelectedPhotoAccess"
         tools:targetApi="31">
+        <activity
+            android:name="com.example.carmatch.view.DetailsVehicleActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.carmatch.view.VehicleActivity"
+            android:theme="@style/Theme.CarMatch.NoActionBar"/>
         <activity
             android:name="com.example.carmatch.view.PhotosVehicleActivity"
             android:exported="false"

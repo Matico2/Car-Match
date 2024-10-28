@@ -1,13 +1,124 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.carmatch.view.fragments.AdVehiclesFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <include
+        android:id="@+id/includeMainToolbar"
+        layout="@layout/toolbar_app"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/vehicleCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <TextView
+                android:id="@+id/vehicleModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modelo do Veículo"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:paddingBottom="8dp" />
+
+            <ImageView
+                android:id="@+id/vehicleImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/vehicle_icon"
+                 android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/vehiclePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preço: R$"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/vehicleAdvertiser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anunciante:"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+            <!-- Botão "Ver mais" para expandir detalhes -->
+            <Button
+                android:id="@+id/btnViewMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ver mais"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/white"
+                android:backgroundTint="?attr/colorPrimary" />
+
+
+            <LinearLayout
+                android:id="@+id/additionalInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/vehicleYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ano: "
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+                <TextView
+                    android:id="@+id/vehicleFuelType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Combustível:"
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+                <TextView
+                    android:id="@+id/vehicleCondition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Condição: "
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+                <TextView
+                    android:id="@+id/vehicleKm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KM:"
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+                <TextView
+                    android:id="@+id/vehiclePlate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Placa:"
+                   />
+
+                <TextView
+                    android:id="@+id/vehicleDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descrição:"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </FrameLayout>

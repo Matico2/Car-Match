@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+        android:maxSdkVersion="34" />
 
     <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
     <!-- <uses-sdk android:minSdkVersion="21"/> -->
@@ -48,6 +48,11 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.CarMatch" >
+        <activity
+            android:name="com.example.carmatch.view.DetailsVehicleActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.carmatch.view.VehicleActivity"
+            android:theme="@style/Theme.CarMatch.NoActionBar" />
         <activity
             android:name="com.example.carmatch.view.PhotosVehicleActivity"
             android:exported="false"

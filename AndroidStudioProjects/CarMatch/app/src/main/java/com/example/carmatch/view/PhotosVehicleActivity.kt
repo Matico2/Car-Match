@@ -9,13 +9,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.carmatch.utils.showMenssage
-import com.example.carmatch1.R
 import com.example.carmatch1.databinding.ActivityPhotosVehicleBinding
 import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.android.gms.tasks.Tasks
 import android.widget.GridLayout
 import android.widget.ImageView
 
@@ -27,6 +26,7 @@ class PhotosVehicleActivity : AppCompatActivity() {
     private var cameraPermission = false
     private var galeryPermission = false
     private val photoUris = mutableListOf<Uri>()
+    private var vehicleId: String? = null
     
     companion object {
         private const val GALLERY_REQUEST_CODE = 1001
@@ -37,6 +37,9 @@ class PhotosVehicleActivity : AppCompatActivity() {
         setContentView(binding.root)
         includeToolbarApp()
         permissions()
+        
+        // Obtém o vehicleId passado pela EditVehicleActivity
+        vehicleId = intent.getStringExtra("vehicleId")
         
         binding.btnAddPhoto.setOnClickListener {
             openGallery()
@@ -106,11 +109,11 @@ class PhotosVehicleActivity : AppCompatActivity() {
     
     private fun savePhotos() {
         val userId = firebaseAuth.currentUser?.uid
-        if (userId != null) {
+        if (userId != null && vehicleId != null) {
             val uploadTasks = mutableListOf<Task<Uri>>()
             
             photoUris.forEachIndexed { index, uri ->
-                val fileRef = storage.reference.child("photos/vehicles/$userId/photo_$index.jpg")
+                val fileRef = storage.reference.child("photos/vehicles/$userId/$vehicleId/photo_$index.jpg")
                 uploadTasks.add(fileRef.putFile(uri).continueWithTask { task ->
                     if (!task.isSuccessful) {
                         throw task.exception ?: Exception("Upload failed")
@@ -120,11 +123,13 @@ class PhotosVehicleActivity : AppCompatActivity() {
             }
             
             Tasks.whenAllSuccess<Uri>(uploadTasks).addOnSuccessListener { downloadUris ->
-                // Aqui você pode armazenar os downloadUris em Firestore ou fazer qualquer outra operação necessária
                 showMenssage("Fotos salvas com sucesso!")
+                startActivity(Intent(this, VehicleActivity::class.java))
             }.addOnFailureListener {
                 showMenssage("Falha ao salvar as fotos!")
             }
+        } else {
+            showMenssage("Erro: ID do usuário ou do veículo não encontrado.")
         }
     }
     
