@@ -138,6 +138,7 @@ attr alpha
 attr alphabeticModifiers
 attr altSrc
 attr alwaysExpand
+attr ambientEnabled
 attr animateCircleAngleTo
 attr animateMenuItems
 attr animateNavigationIcon
@@ -245,6 +246,13 @@ attr buttonStyle
 attr buttonStyleSmall
 attr buttonTint
 attr buttonTintMode
+attr cameraBearing
+attr cameraMaxZoomPreference
+attr cameraMinZoomPreference
+attr cameraTargetLat
+attr cameraTargetLng
+attr cameraTilt
+attr cameraZoom
 attr cardBackgroundColor
 attr cardCornerRadius
 attr cardElevation
@@ -724,6 +732,10 @@ attr labelVisibilityMode
 attr largeFontVerticalOffsetAdjustment
 attr lastBaselineToBottomHeight
 attr lastItemDecorated
+attr latLngBoundsNorthEastLatitude
+attr latLngBoundsNorthEastLongitude
+attr latLngBoundsSouthWestLatitude
+attr latLngBoundsSouthWestLongitude
 attr launchSingleTop
 attr layout
 attr layoutDescription
@@ -820,10 +832,13 @@ attr listPreferredItemPaddingEnd
 attr listPreferredItemPaddingLeft
 attr listPreferredItemPaddingRight
 attr listPreferredItemPaddingStart
+attr liteMode
 attr logo
 attr logoAdjustViewBounds
 attr logoDescription
 attr logoScaleType
+attr mapId
+attr mapType
 attr marginHorizontal
 attr marginLeftSystemWindowInsets
 attr marginRightSystemWindowInsets
@@ -1341,11 +1356,20 @@ attr triggerId
 attr triggerReceiver
 attr triggerSlack
 attr ttcIndex
+attr uiCompass
+attr uiMapToolbar
+attr uiRotateGestures
+attr uiScrollGestures
+attr uiScrollGesturesDuringRotateOrZoom
+attr uiTiltGestures
+attr uiZoomControls
+attr uiZoomGestures
 attr upDuration
 attr uri
 attr useCompatPadding
 attr useDrawerArrowDrawable
 attr useMaterialThemeColors
+attr useViewLifecycle
 attr values
 attr verticalOffset
 attr verticalOffsetWithText
@@ -1376,6 +1400,7 @@ attr windowNoTitle
 attr yearSelectedStyle
 attr yearStyle
 attr yearTodayStyle
+attr zOrderOnTop
 bool abc_action_bar_embed_tabs
 bool abc_config_actionMenuItemAllCaps
 bool mtrl_btn_textappearance_all_caps
@@ -1437,6 +1462,7 @@ color colorGray
 color colorLightBeige
 color colorLightOrange
 color colorVibrantOrange
+color colorWhiteWhite
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -2161,6 +2187,7 @@ color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
 color red
+color ripple
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -2973,6 +3000,10 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen polyline_width
+dimen polyline_width_eighth
+dimen polyline_width_fourth
+dimen polyline_width_half
 dimen sliding_pane_detail_pane_width
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
@@ -3061,7 +3092,11 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable ad_icon
 drawable add_photo
+drawable amu_bubble_mask
+drawable amu_bubble_shadow
+drawable arrow_down
 drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_add_circle_24
@@ -3075,6 +3110,7 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable car_match_icon
+drawable chat
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -3111,7 +3147,10 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_destinationmarker
+drawable ic_dropoff
 drawable ic_icon_app_background
+drawable ic_intermediate_destination
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3125,8 +3164,10 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_other_sign_in
 drawable ic_passkey
 drawable ic_password
+drawable ic_pickuppointselected
 drawable ic_search_black_24
 drawable indeterminate_static
+drawable like
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3204,6 +3245,7 @@ drawable shere_icon
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable vehicle
 drawable vehicle_icon
 id ALT
 id BOTTOM_END
@@ -3287,6 +3329,7 @@ id aligned
 id all
 id allStates
 id always
+id amu_text
 id androidx_window_activity_scope
 id animateToEnd
 id animateToStart
@@ -3315,8 +3358,8 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btnAd
 id btnAddVehicle
-id btnAnnounce
 id btnCancel
 id btnDeleteVehicle
 id btnEditVehicle
@@ -3324,7 +3367,7 @@ id btnNext
 id btnReturn
 id btnSave
 id btnSaveVehicle
-id btnViewMore
+id btnStartConversation
 id btn_add_photo
 id btn_edit_profile
 id buttonCancel
@@ -3463,12 +3506,14 @@ id group_divider
 id grouping
 id groups
 id header_title
+id heartIcon
 id hide_ime_id
 id hideable
 id home
 id homeAsUp
 id honorRequest
 id horizontal_only
+id hybrid
 id icon
 id icon_group
 id icon_only
@@ -3476,6 +3521,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageContatoFoto
 id imageIcon
 id imgPhoto
 id img_profile
@@ -3643,6 +3689,7 @@ id right_side
 id rounded
 id row_index_key
 id rtl
+id satellite
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3721,6 +3768,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id terrain
 id text
 id text2
 id textEnd
@@ -3734,6 +3782,8 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textUserName
+id textVehicleModel
 id textViewCopyright
 id textViewForgotPassword
 id textViewRegister
@@ -3766,6 +3816,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvViewMore
 id txtBrand
 id txtBrandModel
 id txtDescription
@@ -3785,13 +3836,14 @@ id uniform
 id unlabeled
 id up
 id useLogo
-id vehicleAdvertiser
 id vehicleCardView
 id vehicleCondition
 id vehicleDescription
 id vehicleFuelType
-id vehicleImage
+id vehicleImageView
+id vehicleImagesRecyclerView
 id vehicleKm
+id vehicleLocation
 id vehicleModel
 id vehiclePlate
 id vehiclePrice
@@ -3807,8 +3859,10 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id webview
 id west
 id wide
+id window
 id withText
 id with_icon
 id withinBounds
@@ -3943,6 +3997,9 @@ layout activity_photos_vehicle
 layout activity_profile
 layout activity_register
 layout activity_vehicle
+layout amu_info_window
+layout amu_text_bubble
+layout amu_webview
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -3969,7 +4026,10 @@ layout fragment_user_chat
 layout fragment_vehicle_list
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_chat
 layout item_vehicle
+layout item_vehicle_fav
+layout item_vehicle_image
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -4140,6 +4200,8 @@ string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string label_dropoff_selection_pin
+string label_pickup_selection_pin
 string m3_exceed_max_badge_text_suffix
 string m3_ref_typeface_brand_medium
 string m3_ref_typeface_brand_regular
@@ -4181,6 +4243,8 @@ string material_timepicker_text_input_mode_description
 string menu_gallery
 string menu_home
 string menu_slideshow
+string msg_accept_location_permission
+string msg_start_preview_error
 string mtrl_badge_numberless_content_description
 string mtrl_checkbox_button_icon_path_checked
 string mtrl_checkbox_button_icon_path_group_name
@@ -5402,6 +5466,9 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style amu_Bubble_TextAppearance_Dark
+style amu_Bubble_TextAppearance_Light
+style amu_ClusterIcon_TextAppearance
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -5484,6 +5551,7 @@ styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width 
 styleable LinearProgressIndicator indeterminateAnimationType indicatorDirectionLinear trackStopIndicatorSize
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
 styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
+styleable MapAttrs ambientEnabled backgroundColor cameraBearing cameraMaxZoomPreference cameraMinZoomPreference cameraTargetLat cameraTargetLng cameraTilt cameraZoom latLngBoundsNorthEastLatitude latLngBoundsNorthEastLongitude latLngBoundsSouthWestLatitude latLngBoundsSouthWestLongitude liteMode mapId mapType uiCompass uiMapToolbar uiRotateGestures uiScrollGestures uiScrollGesturesDuringRotateOrZoom uiTiltGestures uiZoomControls uiZoomGestures useViewLifecycle zOrderOnTop
 styleable MaterialAlertDialog backgroundInsetBottom backgroundInsetEnd backgroundInsetStart backgroundInsetTop backgroundTint
 styleable MaterialAlertDialogTheme materialAlertDialogBodyTextStyle materialAlertDialogButtonSpacerVisibility materialAlertDialogTheme materialAlertDialogTitleIconStyle materialAlertDialogTitlePanelStyle materialAlertDialogTitleTextStyle
 styleable MaterialAutoCompleteTextView android_inputType android_popupElevation dropDownBackgroundTint simpleItemLayout simpleItemSelectedColor simpleItemSelectedRippleColor simpleItems

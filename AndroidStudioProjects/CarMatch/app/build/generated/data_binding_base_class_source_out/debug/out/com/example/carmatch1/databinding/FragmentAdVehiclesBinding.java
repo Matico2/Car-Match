@@ -4,14 +4,14 @@ package com.example.carmatch1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carmatch1.R;
@@ -27,13 +27,16 @@ public final class FragmentAdVehiclesBinding implements ViewBinding {
   public final LinearLayout additionalInfoLayout;
 
   @NonNull
-  public final Button btnViewMore;
+  public final ImageButton btnStartConversation;
+
+  @NonNull
+  public final ImageButton heartIcon;
 
   @NonNull
   public final ToolbarAppBinding includeMainToolbar;
 
   @NonNull
-  public final TextView vehicleAdvertiser;
+  public final TextView tvViewMore;
 
   @NonNull
   public final CardView vehicleCardView;
@@ -48,10 +51,13 @@ public final class FragmentAdVehiclesBinding implements ViewBinding {
   public final TextView vehicleFuelType;
 
   @NonNull
-  public final ImageView vehicleImage;
+  public final RecyclerView vehicleImagesRecyclerView;
 
   @NonNull
   public final TextView vehicleKm;
+
+  @NonNull
+  public final TextView vehicleLocation;
 
   @NonNull
   public final TextView vehicleModel;
@@ -66,24 +72,27 @@ public final class FragmentAdVehiclesBinding implements ViewBinding {
   public final TextView vehicleYear;
 
   private FragmentAdVehiclesBinding(@NonNull FrameLayout rootView,
-      @NonNull LinearLayout additionalInfoLayout, @NonNull Button btnViewMore,
-      @NonNull ToolbarAppBinding includeMainToolbar, @NonNull TextView vehicleAdvertiser,
-      @NonNull CardView vehicleCardView, @NonNull TextView vehicleCondition,
-      @NonNull TextView vehicleDescription, @NonNull TextView vehicleFuelType,
-      @NonNull ImageView vehicleImage, @NonNull TextView vehicleKm, @NonNull TextView vehicleModel,
-      @NonNull TextView vehiclePlate, @NonNull TextView vehiclePrice,
-      @NonNull TextView vehicleYear) {
+      @NonNull LinearLayout additionalInfoLayout, @NonNull ImageButton btnStartConversation,
+      @NonNull ImageButton heartIcon, @NonNull ToolbarAppBinding includeMainToolbar,
+      @NonNull TextView tvViewMore, @NonNull CardView vehicleCardView,
+      @NonNull TextView vehicleCondition, @NonNull TextView vehicleDescription,
+      @NonNull TextView vehicleFuelType, @NonNull RecyclerView vehicleImagesRecyclerView,
+      @NonNull TextView vehicleKm, @NonNull TextView vehicleLocation,
+      @NonNull TextView vehicleModel, @NonNull TextView vehiclePlate,
+      @NonNull TextView vehiclePrice, @NonNull TextView vehicleYear) {
     this.rootView = rootView;
     this.additionalInfoLayout = additionalInfoLayout;
-    this.btnViewMore = btnViewMore;
+    this.btnStartConversation = btnStartConversation;
+    this.heartIcon = heartIcon;
     this.includeMainToolbar = includeMainToolbar;
-    this.vehicleAdvertiser = vehicleAdvertiser;
+    this.tvViewMore = tvViewMore;
     this.vehicleCardView = vehicleCardView;
     this.vehicleCondition = vehicleCondition;
     this.vehicleDescription = vehicleDescription;
     this.vehicleFuelType = vehicleFuelType;
-    this.vehicleImage = vehicleImage;
+    this.vehicleImagesRecyclerView = vehicleImagesRecyclerView;
     this.vehicleKm = vehicleKm;
+    this.vehicleLocation = vehicleLocation;
     this.vehicleModel = vehicleModel;
     this.vehiclePlate = vehiclePlate;
     this.vehiclePrice = vehiclePrice;
@@ -123,9 +132,15 @@ public final class FragmentAdVehiclesBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btnViewMore;
-      Button btnViewMore = ViewBindings.findChildViewById(rootView, id);
-      if (btnViewMore == null) {
+      id = R.id.btnStartConversation;
+      ImageButton btnStartConversation = ViewBindings.findChildViewById(rootView, id);
+      if (btnStartConversation == null) {
+        break missingId;
+      }
+
+      id = R.id.heartIcon;
+      ImageButton heartIcon = ViewBindings.findChildViewById(rootView, id);
+      if (heartIcon == null) {
         break missingId;
       }
 
@@ -136,9 +151,9 @@ public final class FragmentAdVehiclesBinding implements ViewBinding {
       }
       ToolbarAppBinding binding_includeMainToolbar = ToolbarAppBinding.bind(includeMainToolbar);
 
-      id = R.id.vehicleAdvertiser;
-      TextView vehicleAdvertiser = ViewBindings.findChildViewById(rootView, id);
-      if (vehicleAdvertiser == null) {
+      id = R.id.tvViewMore;
+      TextView tvViewMore = ViewBindings.findChildViewById(rootView, id);
+      if (tvViewMore == null) {
         break missingId;
       }
 
@@ -166,15 +181,21 @@ public final class FragmentAdVehiclesBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.vehicleImage;
-      ImageView vehicleImage = ViewBindings.findChildViewById(rootView, id);
-      if (vehicleImage == null) {
+      id = R.id.vehicleImagesRecyclerView;
+      RecyclerView vehicleImagesRecyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (vehicleImagesRecyclerView == null) {
         break missingId;
       }
 
       id = R.id.vehicleKm;
       TextView vehicleKm = ViewBindings.findChildViewById(rootView, id);
       if (vehicleKm == null) {
+        break missingId;
+      }
+
+      id = R.id.vehicleLocation;
+      TextView vehicleLocation = ViewBindings.findChildViewById(rootView, id);
+      if (vehicleLocation == null) {
         break missingId;
       }
 
@@ -203,9 +224,9 @@ public final class FragmentAdVehiclesBinding implements ViewBinding {
       }
 
       return new FragmentAdVehiclesBinding((FrameLayout) rootView, additionalInfoLayout,
-          btnViewMore, binding_includeMainToolbar, vehicleAdvertiser, vehicleCardView,
-          vehicleCondition, vehicleDescription, vehicleFuelType, vehicleImage, vehicleKm,
-          vehicleModel, vehiclePlate, vehiclePrice, vehicleYear);
+          btnStartConversation, heartIcon, binding_includeMainToolbar, tvViewMore, vehicleCardView,
+          vehicleCondition, vehicleDescription, vehicleFuelType, vehicleImagesRecyclerView,
+          vehicleKm, vehicleLocation, vehicleModel, vehiclePlate, vehiclePrice, vehicleYear);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

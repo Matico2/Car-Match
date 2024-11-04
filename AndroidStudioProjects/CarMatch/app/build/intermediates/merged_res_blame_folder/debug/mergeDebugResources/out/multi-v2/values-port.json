@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carmatch1.app-mergeDebugResources-56:/values-port/values-port.xml",
+            "outputFile": "com.example.carmatch1.app-mergeDebugResources-63:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mathe\\.gradle\\caches\\transforms-4\\3cbe3328d81e3c7f93301e27aa5e3dc3\\transformed\\appcompat-1.7.0\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\mathe\\.gradle\\caches\\transforms-4\\bbc668d8ccf7ec7bfcff08f0b4a4cb01\\transformed\\appcompat-1.7.0\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

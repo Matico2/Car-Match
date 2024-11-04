@@ -7,6 +7,7 @@
     <color name="colorLightBeige">#E4B394</color>
     <color name="colorLightOrange">#F4A57A</color>
     <color name="colorVibrantOrange">#F4791D</color>
+    <color name="colorWhiteWhite">#E4E1E1</color>
     <color name="red">#FF0000</color>
     <color name="white">#FFFFFFFF</color>
     <string name="action_settings">Settings</string>

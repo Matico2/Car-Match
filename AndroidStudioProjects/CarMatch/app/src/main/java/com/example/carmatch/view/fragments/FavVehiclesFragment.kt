@@ -5,16 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.carmatch1.R
+
+import com.example.carmatch1.databinding.FragmentFavVehiclesBinding
 
 class FavVehiclesFragment : Fragment() {
-  
+    private lateinit var binding: FragmentFavVehiclesBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fav_vehicles, container, false)
+        binding = FragmentFavVehiclesBinding.inflate(inflater, container, false)
+        return binding.root
     }
-    
 }

@@ -35,6 +35,7 @@ class DetailsVehicleActivity : AppCompatActivity() {
         binding.btnDeleteVehicle.setOnClickListener {
             vehicleId?.let { id ->
                 deleteVehicle(id)
+                
             }
         }
     }

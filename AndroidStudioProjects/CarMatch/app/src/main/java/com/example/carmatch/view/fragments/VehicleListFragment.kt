@@ -50,8 +50,8 @@ class VehicleListFragment : Fragment(), VehiclesAdapter.OnItemClickListener {
         val adVehicle = AdVehicle(
             idUser = currentUserId,
             idVehicle = vehicle.vehicleId,
-            IdAd = adId,
-            Status = true // Ou false, conforme necessário
+            idAd = adId,
+            status  = true
         )
         
         FirebaseFirestore.getInstance().collection("AdVehicle").document(adId)

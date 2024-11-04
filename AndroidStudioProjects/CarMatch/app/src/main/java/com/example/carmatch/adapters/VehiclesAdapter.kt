@@ -35,11 +35,11 @@ class VehiclesAdapter(private val itemClickListener: OnItemClickListener) : Adap
             binding.txtBrand.text = vehicle.brand
             binding.txtModel.text = vehicle.model
             binding.txtPrice.text = vehicle.price.toString()
-            binding.btnAnnounce.setOnClickListener {
-                itemClickListener.onAdvertiseClick(vehicle) // Chama o listener quando o botão de anunciar é clicado
+            binding.btnAd.setOnClickListener {
+                itemClickListener.onAdvertiseClick(vehicle)
             }
             binding.root.setOnClickListener {
-                itemClickListener.onItemClick(vehicle) // Chama o listener quando o item é clicado
+                itemClickListener.onItemClick(vehicle)
             }
         }
     }

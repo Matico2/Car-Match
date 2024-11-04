@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,14 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/vehicleCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,6 +25,13 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/vehicleImagesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:clipToPadding="false"
+                android:paddingBottom="8dp"
+                android:scrollbars="horizontal" />
 
             <TextView
                 android:id="@+id/vehicleModel"
@@ -30,15 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="Modelo do Veículo"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:paddingBottom="8dp" />
-
-            <ImageView
-                android:id="@+id/vehicleImage"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/vehicle_icon"
-                 android:layout_marginBottom="8dp" />
+                android:paddingBottom="4dp" />
 
             <TextView
                 android:id="@+id/vehiclePrice"
@@ -49,22 +50,24 @@
                 android:paddingBottom="4dp" />
 
             <TextView
-                android:id="@+id/vehicleAdvertiser"
+                android:id="@+id/vehicleLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Anunciante:"
-                android:textAppearance="?attr/textAppearanceSubtitle1" />
+                android:text="Localização: "
+                android:textAppearance="?attr/textAppearanceSubtitle2" />
 
-            <!-- Botão "Ver mais" para expandir detalhes -->
-            <Button
-                android:id="@+id/btnViewMore"
+            <TextView
+                android:id="@+id/tvViewMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ver mais"
                 android:layout_marginTop="16dp"
-                android:textColor="@android:color/white"
-                android:backgroundTint="?attr/colorPrimary" />
-
+                android:layout_gravity="center"
+                android:drawableEnd="@drawable/arrow_down"
+                android:drawablePadding="4dp"
+                android:textColor="@color/colorGray"
+                android:clickable="true"
+                android:focusable="true" />
 
             <LinearLayout
                 android:id="@+id/additionalInfoLayout"
@@ -107,18 +110,44 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Placa:"
-                   />
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
 
                 <TextView
                     android:id="@+id/vehicleDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Descrição:"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
             </LinearLayout>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="8dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/heartIcon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:contentDescription="Salvar veículo como favorito"
+                    android:src="@drawable/like"
+                    />
+
+                <ImageButton
+                    android:id="@+id/btnStartConversation"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:src="@drawable/chat"
+                    android:text="Conversar"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
 </FrameLayout>

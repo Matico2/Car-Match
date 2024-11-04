@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/vehicleImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/vehicleModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modelo"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:paddingTop="8dp" />
+
+    <TextView
+        android:id="@+id/vehiclePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preço"
+        android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+    <TextView
+        android:id="@+id/vehicleLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Localização"
+        android:textAppearance="?attr/textAppearanceSubtitle2" />
+</LinearLayout>
