@@ -4,6 +4,7 @@ package com.example.carmatch1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,16 +13,44 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carmatch1.R;
+import com.google.android.material.card.MaterialCardView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class ItemVehicleImageBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final MaterialCardView rootView;
 
   @NonNull
-  public final ImageView vehicleImageView;
+  public final LinearLayout additionalInfoLayout;
+
+  @NonNull
+  public final ImageButton btnStartConversation;
+
+  @NonNull
+  public final ImageButton heartIcon;
+
+  @NonNull
+  public final TextView tvViewMore;
+
+  @NonNull
+  public final TextView userName;
+
+  @NonNull
+  public final TextView vehicleCondition;
+
+  @NonNull
+  public final TextView vehicleDescription;
+
+  @NonNull
+  public final TextView vehicleFuelType;
+
+  @NonNull
+  public final ImageView vehicleImages;
+
+  @NonNull
+  public final TextView vehicleKm;
 
   @NonNull
   public final TextView vehicleLocation;
@@ -32,19 +61,37 @@ public final class ItemVehicleImageBinding implements ViewBinding {
   @NonNull
   public final TextView vehiclePrice;
 
-  private ItemVehicleImageBinding(@NonNull LinearLayout rootView,
-      @NonNull ImageView vehicleImageView, @NonNull TextView vehicleLocation,
-      @NonNull TextView vehicleModel, @NonNull TextView vehiclePrice) {
+  @NonNull
+  public final TextView vehicleYear;
+
+  private ItemVehicleImageBinding(@NonNull MaterialCardView rootView,
+      @NonNull LinearLayout additionalInfoLayout, @NonNull ImageButton btnStartConversation,
+      @NonNull ImageButton heartIcon, @NonNull TextView tvViewMore, @NonNull TextView userName,
+      @NonNull TextView vehicleCondition, @NonNull TextView vehicleDescription,
+      @NonNull TextView vehicleFuelType, @NonNull ImageView vehicleImages,
+      @NonNull TextView vehicleKm, @NonNull TextView vehicleLocation,
+      @NonNull TextView vehicleModel, @NonNull TextView vehiclePrice,
+      @NonNull TextView vehicleYear) {
     this.rootView = rootView;
-    this.vehicleImageView = vehicleImageView;
+    this.additionalInfoLayout = additionalInfoLayout;
+    this.btnStartConversation = btnStartConversation;
+    this.heartIcon = heartIcon;
+    this.tvViewMore = tvViewMore;
+    this.userName = userName;
+    this.vehicleCondition = vehicleCondition;
+    this.vehicleDescription = vehicleDescription;
+    this.vehicleFuelType = vehicleFuelType;
+    this.vehicleImages = vehicleImages;
+    this.vehicleKm = vehicleKm;
     this.vehicleLocation = vehicleLocation;
     this.vehicleModel = vehicleModel;
     this.vehiclePrice = vehiclePrice;
+    this.vehicleYear = vehicleYear;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public MaterialCardView getRoot() {
     return rootView;
   }
 
@@ -69,9 +116,63 @@ public final class ItemVehicleImageBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.vehicleImageView;
-      ImageView vehicleImageView = ViewBindings.findChildViewById(rootView, id);
-      if (vehicleImageView == null) {
+      id = R.id.additionalInfoLayout;
+      LinearLayout additionalInfoLayout = ViewBindings.findChildViewById(rootView, id);
+      if (additionalInfoLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.btnStartConversation;
+      ImageButton btnStartConversation = ViewBindings.findChildViewById(rootView, id);
+      if (btnStartConversation == null) {
+        break missingId;
+      }
+
+      id = R.id.heartIcon;
+      ImageButton heartIcon = ViewBindings.findChildViewById(rootView, id);
+      if (heartIcon == null) {
+        break missingId;
+      }
+
+      id = R.id.tvViewMore;
+      TextView tvViewMore = ViewBindings.findChildViewById(rootView, id);
+      if (tvViewMore == null) {
+        break missingId;
+      }
+
+      id = R.id.userName;
+      TextView userName = ViewBindings.findChildViewById(rootView, id);
+      if (userName == null) {
+        break missingId;
+      }
+
+      id = R.id.vehicleCondition;
+      TextView vehicleCondition = ViewBindings.findChildViewById(rootView, id);
+      if (vehicleCondition == null) {
+        break missingId;
+      }
+
+      id = R.id.vehicleDescription;
+      TextView vehicleDescription = ViewBindings.findChildViewById(rootView, id);
+      if (vehicleDescription == null) {
+        break missingId;
+      }
+
+      id = R.id.vehicleFuelType;
+      TextView vehicleFuelType = ViewBindings.findChildViewById(rootView, id);
+      if (vehicleFuelType == null) {
+        break missingId;
+      }
+
+      id = R.id.vehicleImages;
+      ImageView vehicleImages = ViewBindings.findChildViewById(rootView, id);
+      if (vehicleImages == null) {
+        break missingId;
+      }
+
+      id = R.id.vehicleKm;
+      TextView vehicleKm = ViewBindings.findChildViewById(rootView, id);
+      if (vehicleKm == null) {
         break missingId;
       }
 
@@ -93,8 +194,16 @@ public final class ItemVehicleImageBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemVehicleImageBinding((LinearLayout) rootView, vehicleImageView, vehicleLocation,
-          vehicleModel, vehiclePrice);
+      id = R.id.vehicleYear;
+      TextView vehicleYear = ViewBindings.findChildViewById(rootView, id);
+      if (vehicleYear == null) {
+        break missingId;
+      }
+
+      return new ItemVehicleImageBinding((MaterialCardView) rootView, additionalInfoLayout,
+          btnStartConversation, heartIcon, tvViewMore, userName, vehicleCondition,
+          vehicleDescription, vehicleFuelType, vehicleImages, vehicleKm, vehicleLocation,
+          vehicleModel, vehiclePrice, vehicleYear);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -4,14 +4,13 @@ package com.example.carmatch1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import androidx.viewpager2.widget.ViewPager2;
 import com.example.carmatch1.R;
-import com.google.android.material.tabs.TabLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -21,25 +20,16 @@ public final class ActivityMainBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ConstraintLayout imgProfile;
+  public final FrameLayout fragmentContainer;
 
   @NonNull
   public final ToolbarAppBinding includeMainToolbar;
 
-  @NonNull
-  public final TabLayout tabLayout;
-
-  @NonNull
-  public final ViewPager2 viewPage;
-
   private ActivityMainBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout imgProfile, @NonNull ToolbarAppBinding includeMainToolbar,
-      @NonNull TabLayout tabLayout, @NonNull ViewPager2 viewPage) {
+      @NonNull FrameLayout fragmentContainer, @NonNull ToolbarAppBinding includeMainToolbar) {
     this.rootView = rootView;
-    this.imgProfile = imgProfile;
+    this.fragmentContainer = fragmentContainer;
     this.includeMainToolbar = includeMainToolbar;
-    this.tabLayout = tabLayout;
-    this.viewPage = viewPage;
   }
 
   @Override
@@ -69,7 +59,11 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      ConstraintLayout imgProfile = (ConstraintLayout) rootView;
+      id = R.id.fragment_container;
+      FrameLayout fragmentContainer = ViewBindings.findChildViewById(rootView, id);
+      if (fragmentContainer == null) {
+        break missingId;
+      }
 
       id = R.id.includeMainToolbar;
       View includeMainToolbar = ViewBindings.findChildViewById(rootView, id);
@@ -78,20 +72,8 @@ public final class ActivityMainBinding implements ViewBinding {
       }
       ToolbarAppBinding binding_includeMainToolbar = ToolbarAppBinding.bind(includeMainToolbar);
 
-      id = R.id.tabLayout;
-      TabLayout tabLayout = ViewBindings.findChildViewById(rootView, id);
-      if (tabLayout == null) {
-        break missingId;
-      }
-
-      id = R.id.viewPage;
-      ViewPager2 viewPage = ViewBindings.findChildViewById(rootView, id);
-      if (viewPage == null) {
-        break missingId;
-      }
-
-      return new ActivityMainBinding((ConstraintLayout) rootView, imgProfile,
-          binding_includeMainToolbar, tabLayout, viewPage);
+      return new ActivityMainBinding((ConstraintLayout) rootView, fragmentContainer,
+          binding_includeMainToolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -5,8 +5,6 @@ data class AdVehicle(
     var idVehicle: String = "",
     var idAd: String = "",
     var status: Boolean = true,
-    var model: String = "",
-    var price: String = "",
-    var location: String = "",
-    var imageUrls: List<String> = listOf()
 )
+
+

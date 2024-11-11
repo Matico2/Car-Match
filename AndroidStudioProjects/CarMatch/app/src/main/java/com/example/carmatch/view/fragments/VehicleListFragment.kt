@@ -1,17 +1,20 @@
 package com.example.carmatch.view.fragments
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carmatch.adapters.VehiclesAdapter
 import com.example.carmatch.model.AdVehicle
 import com.example.carmatch.model.Vehicle
+import com.example.carmatch.utils.showMenssage
 import com.example.carmatch.view.DetailsVehicleActivity
 import com.example.carmatch1.databinding.FragmentVehicleListBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -24,7 +27,7 @@ class VehicleListFragment : Fragment(), VehiclesAdapter.OnItemClickListener {
     private lateinit var binding: FragmentVehicleListBinding
     private lateinit var eventSnapShot: ListenerRegistration
     private lateinit var vehiclesAdapter: VehiclesAdapter
-    
+    private val firebaseAuth by lazy { FirebaseAuth.getInstance() }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,28 +44,28 @@ class VehicleListFragment : Fragment(), VehiclesAdapter.OnItemClickListener {
         return binding.root
     }
     override fun onAdvertiseClick(vehicle: Vehicle) {
-        advertiseVehicle(vehicle)
+        Log.d("VehicleListFragment", "Botão de anúncio clicado para veículo: ${vehicle.vehicleId}")
+        adVehicle(vehicle)
     }
     
-    private fun advertiseVehicle(vehicle: Vehicle) {
-        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid ?: return
-        val adId = FirebaseFirestore.getInstance().collection("AdVehicle").document().id
-        val adVehicle = AdVehicle(
-            idUser = currentUserId,
-            idVehicle = vehicle.vehicleId,
-            idAd = adId,
-            status  = true
-        )
+    private fun adVehicle(vehicle: Vehicle) {
+        val idUser = firebaseAuth.currentUser?.uid ?: run {
+            Log.e("VehicleListFragment", "Usuário não autenticado.")
+            return
+        }
+        val adId = firestore.collection("AdVehicle").document().id
+        val adVehicle = AdVehicle(idUser = idUser, idVehicle = vehicle.vehicleId, idAd = adId, status = true)
         
-        FirebaseFirestore.getInstance().collection("AdVehicle").document(adId)
+        firestore.collection("AdVehicle").document(adId)
             .set(adVehicle)
             .addOnSuccessListener {
-                Log.d("VehicleListFragment", "Anúncio criado com sucesso: $adId")
+                showMenssage(requireContext(), "Anúncio criado com sucesso!")
             }
             .addOnFailureListener { e ->
-                Log.e("VehicleListFragment", "Erro ao criar anúncio: $e")
+                showMenssage(requireContext(), "Erro ao criar anúncio.")
             }
     }
+    
     override fun onItemClick(vehicle: Vehicle) {
         val intent = Intent(requireContext(), DetailsVehicleActivity::class.java).apply {
             putExtra("vehicleId", vehicle.vehicleId)
@@ -99,5 +102,9 @@ class VehicleListFragment : Fragment(), VehiclesAdapter.OnItemClickListener {
     override fun onDestroy() {
         super.onDestroy()
         eventSnapShot.remove()
+    }
+    
+    fun showMenssage(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 }

@@ -59,5 +59,7 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.squareup.picasso:picasso:2.8") // picasso convertor de img para txt
-   
+    implementation("com.github.yuyakaido:CardStackView:2.3.4")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    
 }

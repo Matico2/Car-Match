@@ -60,6 +60,14 @@
         android:testOnly="true"
         android:theme="@style/Theme.CarMatch" >
         <activity
+            android:name="com.example.carmatch.view.ChatActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.carmatch.view.MainActivity" />
+        <activity
+            android:name="com.example.carmatch.view.FavVehicleActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.carmatch.view.MainActivity" />
+        <activity
             android:name="com.example.carmatch.view.DetailsVehicleActivity"
             android:exported="false"
             android:parentActivityName="com.example.carmatch.view.VehicleActivity"

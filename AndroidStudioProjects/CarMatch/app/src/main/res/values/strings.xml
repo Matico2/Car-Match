@@ -30,4 +30,6 @@
     <string name="digit_cpf">Digite seu CPF</string>
     <string name="digit_date">Digite sua data de nascimento</string>
     <string name="delete_account">Deletar conta.</string>
+    <string name="fav">Favoritos</string>
+    <string name="Chat">Conversas</string>
 </resources>

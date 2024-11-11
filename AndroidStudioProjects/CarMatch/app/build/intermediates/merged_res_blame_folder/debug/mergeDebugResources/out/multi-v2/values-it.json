@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carmatch1.app-mergeDebugResources-63:/values-it/values-it.xml",
+            "outputFile": "com.example.carmatch1.app-mergeDebugResources-64:/values-it/values-it.xml",
             "map": [
                 {
                     "source": "C:\\Users\\mathe\\.gradle\\caches\\transforms-4\\39dd93097d43c4afea9f6be135497db9\\transformed\\core-1.13.1\\res\\values-it\\values-it.xml",

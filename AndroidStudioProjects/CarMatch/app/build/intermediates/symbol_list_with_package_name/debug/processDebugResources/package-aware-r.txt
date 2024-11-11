@@ -3097,6 +3097,7 @@ drawable add_photo
 drawable amu_bubble_mask
 drawable amu_bubble_shadow
 drawable arrow_down
+drawable arrow_up
 drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_add_circle_24
@@ -3166,6 +3167,7 @@ drawable ic_passkey
 drawable ic_password
 drawable ic_pickuppointselected
 drawable ic_search_black_24
+drawable img_vehicle
 drawable indeterminate_static
 drawable like
 drawable m3_avd_hide_password
@@ -3349,6 +3351,7 @@ id beginning
 id bestChoice
 id blocking
 id bottom
+id bottom_overlay
 id bounce
 id bounceBoth
 id bounceEnd
@@ -3538,6 +3541,8 @@ id inputLayoutNewPassword
 id invisible
 id inward
 id italic
+id item_Chat
+id item_Fav
 id item_Profile
 id item_Vehicle
 id item_touch_helper_previous_elevation
@@ -3547,6 +3552,7 @@ id labeled
 id layout
 id left
 id leftToRight
+id left_overlay
 id legacy
 id light
 id line1
@@ -3685,6 +3691,7 @@ id reverseSawtooth
 id right
 id rightToLeft
 id right_icon
+id right_overlay
 id right_side
 id rounded
 id row_index_key
@@ -3700,6 +3707,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchView
 id search_badge
 id search_bar
 id search_button
@@ -3753,7 +3761,6 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
-id tabLayout
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -3804,6 +3811,7 @@ id toggle
 id toolbarApp
 id top
 id topPanel
+id top_overlay
 id touch_outside
 id transitionToEnd
 id transitionToStart
@@ -3836,20 +3844,18 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userName
 id vehicleCardView
 id vehicleCondition
 id vehicleDescription
 id vehicleFuelType
-id vehicleImageView
-id vehicleImagesRecyclerView
+id vehicleImages
 id vehicleKm
 id vehicleLocation
 id vehicleModel
-id vehiclePlate
 id vehiclePrice
 id vehicleYear
 id vertical_only
-id viewPage
 id viewPagerImages
 id view_offset_helper
 id view_transition
@@ -3988,9 +3994,11 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_change_password
+layout activity_chat
 layout activity_details_vehicle
 layout activity_edit_profile
 layout activity_edit_vehicle
+layout activity_fav_vehicle
 layout activity_login
 layout activity_main
 layout activity_photos_vehicle
@@ -4020,9 +4028,9 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_ad_vehicles
 layout fragment_change_password
+layout fragment_chat
 layout fragment_edit_profile
-layout fragment_fav_vehicles
-layout fragment_user_chat
+layout fragment_fav_vehicle
 layout fragment_vehicle_list
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
@@ -4087,6 +4095,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout overlay
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -4102,6 +4111,7 @@ mipmap ic_launcher_round
 navigation nav_graph
 plurals mtrl_badge_content_description
 raw firebase_common_keep
+string Chat
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -4191,6 +4201,7 @@ string fab_transformation_sheet_behavior
 string fallback_menu_item_copy_link
 string fallback_menu_item_open_in_browser
 string fallback_menu_item_share_link
+string fav
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id

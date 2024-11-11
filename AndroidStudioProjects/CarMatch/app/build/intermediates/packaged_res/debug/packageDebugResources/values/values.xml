@@ -10,6 +10,7 @@
     <color name="colorWhiteWhite">#E4E1E1</color>
     <color name="red">#FF0000</color>
     <color name="white">#FFFFFFFF</color>
+    <string name="Chat">Conversas</string>
     <string name="action_settings">Settings</string>
     <string name="add_photo">Adicionar foto</string>
     <string name="app_name">Car Match</string>
@@ -23,6 +24,7 @@
     <string name="digit_name">Digite seu nome</string>
     <string name="edit_profile">Editar Perfil</string>
     <string name="exit">Sair</string>
+    <string name="fav">Favoritos</string>
     <string name="gcm_defaultSenderId" translatable="false">883450185865</string>
     <string name="google_api_key" translatable="false">AIzaSyBA6lBy_jm8itmHCCGRfHRA7DjgQcLIGPY</string>
     <string name="google_app_id" translatable="false">1:883450185865:android:7c789c89c9258aebc59e58</string>
