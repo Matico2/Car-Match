@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
@@ -22,10 +23,14 @@ public final class FragmentFavVehicleBinding implements ViewBinding {
   @NonNull
   public final RecyclerView RecyclerViewList;
 
+  @NonNull
+  public final SearchView searchView;
+
   private FragmentFavVehicleBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView RecyclerViewList) {
+      @NonNull RecyclerView RecyclerViewList, @NonNull SearchView searchView) {
     this.rootView = rootView;
     this.RecyclerViewList = RecyclerViewList;
+    this.searchView = searchView;
   }
 
   @Override
@@ -61,7 +66,14 @@ public final class FragmentFavVehicleBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentFavVehicleBinding((ConstraintLayout) rootView, RecyclerViewList);
+      id = R.id.searchView;
+      SearchView searchView = ViewBindings.findChildViewById(rootView, id);
+      if (searchView == null) {
+        break missingId;
+      }
+
+      return new FragmentFavVehicleBinding((ConstraintLayout) rootView, RecyclerViewList,
+          searchView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

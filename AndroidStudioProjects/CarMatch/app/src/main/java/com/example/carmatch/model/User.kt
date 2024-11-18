@@ -1,5 +1,9 @@
 package com.example.carmatch.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class User (
     var idUser: String= "",
     var name: String= "",
@@ -10,4 +14,4 @@ data class User (
     var password: String= "",
     var photoUser:String = ""
 
-)
+): Parcelable

@@ -14,8 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carmatch.adapters.VehiclesAdapter
 import com.example.carmatch.model.AdVehicle
 import com.example.carmatch.model.Vehicle
-import com.example.carmatch.utils.showMenssage
-import com.example.carmatch.view.DetailsVehicleActivity
+import com.example.carmatch.view.activitys.DetailsVehicleActivity
 import com.example.carmatch1.databinding.FragmentVehicleListBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -50,7 +49,6 @@ class VehicleListFragment : Fragment(), VehiclesAdapter.OnItemClickListener {
     
     private fun adVehicle(vehicle: Vehicle) {
         val idUser = firebaseAuth.currentUser?.uid ?: run {
-            Log.e("VehicleListFragment", "Usuário não autenticado.")
             return
         }
         val adId = firestore.collection("AdVehicle").document().id

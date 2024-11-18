@@ -20,21 +20,16 @@ public final class ActivityChatBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final FrameLayout fragmentContainer;
+  public final FrameLayout fragmentContainerChat;
 
   @NonNull
   public final ToolbarAppBinding includeMainToolbar;
 
-  @NonNull
-  public final ConstraintLayout main;
-
   private ActivityChatBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FrameLayout fragmentContainer, @NonNull ToolbarAppBinding includeMainToolbar,
-      @NonNull ConstraintLayout main) {
+      @NonNull FrameLayout fragmentContainerChat, @NonNull ToolbarAppBinding includeMainToolbar) {
     this.rootView = rootView;
-    this.fragmentContainer = fragmentContainer;
+    this.fragmentContainerChat = fragmentContainerChat;
     this.includeMainToolbar = includeMainToolbar;
-    this.main = main;
   }
 
   @Override
@@ -64,9 +59,9 @@ public final class ActivityChatBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.fragment_container;
-      FrameLayout fragmentContainer = ViewBindings.findChildViewById(rootView, id);
-      if (fragmentContainer == null) {
+      id = R.id.fragment_container_chat;
+      FrameLayout fragmentContainerChat = ViewBindings.findChildViewById(rootView, id);
+      if (fragmentContainerChat == null) {
         break missingId;
       }
 
@@ -77,10 +72,8 @@ public final class ActivityChatBinding implements ViewBinding {
       }
       ToolbarAppBinding binding_includeMainToolbar = ToolbarAppBinding.bind(includeMainToolbar);
 
-      ConstraintLayout main = (ConstraintLayout) rootView;
-
-      return new ActivityChatBinding((ConstraintLayout) rootView, fragmentContainer,
-          binding_includeMainToolbar, main);
+      return new ActivityChatBinding((ConstraintLayout) rootView, fragmentContainerChat,
+          binding_includeMainToolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

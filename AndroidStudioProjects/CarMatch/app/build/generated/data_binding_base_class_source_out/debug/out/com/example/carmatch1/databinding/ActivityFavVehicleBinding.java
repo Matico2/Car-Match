@@ -20,15 +20,15 @@ public final class ActivityFavVehicleBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final FrameLayout fragmentContainer;
+  public final FrameLayout fragmentContainerFav;
 
   @NonNull
   public final ToolbarAppBinding includeMainToolbar;
 
   private ActivityFavVehicleBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FrameLayout fragmentContainer, @NonNull ToolbarAppBinding includeMainToolbar) {
+      @NonNull FrameLayout fragmentContainerFav, @NonNull ToolbarAppBinding includeMainToolbar) {
     this.rootView = rootView;
-    this.fragmentContainer = fragmentContainer;
+    this.fragmentContainerFav = fragmentContainerFav;
     this.includeMainToolbar = includeMainToolbar;
   }
 
@@ -59,9 +59,9 @@ public final class ActivityFavVehicleBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.fragment_container;
-      FrameLayout fragmentContainer = ViewBindings.findChildViewById(rootView, id);
-      if (fragmentContainer == null) {
+      id = R.id.fragment_container_fav;
+      FrameLayout fragmentContainerFav = ViewBindings.findChildViewById(rootView, id);
+      if (fragmentContainerFav == null) {
         break missingId;
       }
 
@@ -72,7 +72,7 @@ public final class ActivityFavVehicleBinding implements ViewBinding {
       }
       ToolbarAppBinding binding_includeMainToolbar = ToolbarAppBinding.bind(includeMainToolbar);
 
-      return new ActivityFavVehicleBinding((ConstraintLayout) rootView, fragmentContainer,
+      return new ActivityFavVehicleBinding((ConstraintLayout) rootView, fragmentContainerFav,
           binding_includeMainToolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);

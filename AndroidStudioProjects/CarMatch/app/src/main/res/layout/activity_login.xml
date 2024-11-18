@@ -5,7 +5,7 @@
     android:id="@+id/img_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.carmatch.view.LoginActivity"
+    tools:context="com.example.carmatch.view.activitys.LoginActivity"
     android:background="@color/colorBlueGray" >
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialIcon"

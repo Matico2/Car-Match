@@ -21,7 +21,13 @@ public final class ItemChatBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ConstraintLayout clItemChat;
+
+  @NonNull
   public final ShapeableImageView imageContatoFoto;
+
+  @NonNull
+  public final TextView textStatus;
 
   @NonNull
   public final TextView textUserName;
@@ -29,11 +35,13 @@ public final class ItemChatBinding implements ViewBinding {
   @NonNull
   public final TextView textVehicleModel;
 
-  private ItemChatBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ShapeableImageView imageContatoFoto, @NonNull TextView textUserName,
-      @NonNull TextView textVehicleModel) {
+  private ItemChatBinding(@NonNull ConstraintLayout rootView, @NonNull ConstraintLayout clItemChat,
+      @NonNull ShapeableImageView imageContatoFoto, @NonNull TextView textStatus,
+      @NonNull TextView textUserName, @NonNull TextView textVehicleModel) {
     this.rootView = rootView;
+    this.clItemChat = clItemChat;
     this.imageContatoFoto = imageContatoFoto;
+    this.textStatus = textStatus;
     this.textUserName = textUserName;
     this.textVehicleModel = textVehicleModel;
   }
@@ -65,9 +73,17 @@ public final class ItemChatBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      ConstraintLayout clItemChat = (ConstraintLayout) rootView;
+
       id = R.id.imageContatoFoto;
       ShapeableImageView imageContatoFoto = ViewBindings.findChildViewById(rootView, id);
       if (imageContatoFoto == null) {
+        break missingId;
+      }
+
+      id = R.id.textStatus;
+      TextView textStatus = ViewBindings.findChildViewById(rootView, id);
+      if (textStatus == null) {
         break missingId;
       }
 
@@ -83,8 +99,8 @@ public final class ItemChatBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemChatBinding((ConstraintLayout) rootView, imageContatoFoto, textUserName,
-          textVehicleModel);
+      return new ItemChatBinding((ConstraintLayout) rootView, clItemChat, imageContatoFoto,
+          textStatus, textUserName, textVehicleModel);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

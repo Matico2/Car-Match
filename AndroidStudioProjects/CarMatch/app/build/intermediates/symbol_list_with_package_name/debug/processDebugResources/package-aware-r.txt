@@ -3137,6 +3137,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable edit
+drawable fundo_chat
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3243,6 +3244,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable profile_icon
+drawable send_icon
 drawable shere_icon
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -3395,6 +3397,7 @@ id checkbox
 id checked
 id chronometer
 id circle_center
+id clItemChat
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -3462,6 +3465,7 @@ id editTextDescription
 id editTextEmail
 id editTextFuelType
 id editTextKm
+id editTextMessage
 id editTextName
 id editTextNewPassword
 id editTextPlate
@@ -3474,6 +3478,7 @@ id edit_query
 id edit_text_id
 id elastic
 id embed
+id emptyView
 id end
 id endToStart
 id enterAlways
@@ -3495,8 +3500,12 @@ id fitXY
 id fixed
 id flip
 id floating
+id floatingActionButton
 id forever
 id fragment_container
+id fragment_container_ad
+id fragment_container_chat
+id fragment_container_fav
 id fragment_container_view_tag
 id frost
 id fullscreen_header
@@ -3526,6 +3535,7 @@ id ignoreRequest
 id image
 id imageContatoFoto
 id imageIcon
+id imagePhoto
 id imgPhoto
 id img_profile
 id img_profile_photo
@@ -3537,6 +3547,7 @@ id indeterminate
 id info
 id inputLayoutConfirmNewPassword
 id inputLayoutCurrentPassword
+id inputLayoutMessage
 id inputLayoutNewPassword
 id invisible
 id inward
@@ -3686,6 +3697,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerViewChat
 id report_drawn
 id reverseSawtooth
 id right
@@ -3775,6 +3787,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id tb
 id terrain
 id text
 id text2
@@ -3788,6 +3801,7 @@ id textInputPassword
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textStatus
 id textTop
 id textUserName
 id textVehicleModel
@@ -3834,6 +3848,7 @@ id txtModel
 id txtPlate
 id txtPrice
 id txtType
+id txtUserName
 id txtYearFuel
 id txt_change_password
 id txt_delete_account
@@ -3845,7 +3860,6 @@ id unlabeled
 id up
 id useLogo
 id userName
-id vehicleCardView
 id vehicleCondition
 id vehicleDescription
 id vehicleFuelType
@@ -4001,6 +4015,7 @@ layout activity_edit_vehicle
 layout activity_fav_vehicle
 layout activity_login
 layout activity_main
+layout activity_message
 layout activity_photos_vehicle
 layout activity_profile
 layout activity_register
@@ -4027,7 +4042,6 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_ad_vehicles
-layout fragment_change_password
 layout fragment_chat
 layout fragment_edit_profile
 layout fragment_fav_vehicle

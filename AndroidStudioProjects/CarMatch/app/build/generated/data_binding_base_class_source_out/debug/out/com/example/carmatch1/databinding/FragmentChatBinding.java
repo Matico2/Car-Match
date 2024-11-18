@@ -4,6 +4,8 @@ package com.example.carmatch1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,10 +24,19 @@ public final class FragmentChatBinding implements ViewBinding {
   @NonNull
   public final RecyclerView RecyclerViewList;
 
+  @NonNull
+  public final TextView emptyView;
+
+  @NonNull
+  public final SearchView searchView;
+
   private FragmentChatBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView RecyclerViewList) {
+      @NonNull RecyclerView RecyclerViewList, @NonNull TextView emptyView,
+      @NonNull SearchView searchView) {
     this.rootView = rootView;
     this.RecyclerViewList = RecyclerViewList;
+    this.emptyView = emptyView;
+    this.searchView = searchView;
   }
 
   @Override
@@ -61,7 +72,20 @@ public final class FragmentChatBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentChatBinding((ConstraintLayout) rootView, RecyclerViewList);
+      id = R.id.emptyView;
+      TextView emptyView = ViewBindings.findChildViewById(rootView, id);
+      if (emptyView == null) {
+        break missingId;
+      }
+
+      id = R.id.searchView;
+      SearchView searchView = ViewBindings.findChildViewById(rootView, id);
+      if (searchView == null) {
+        break missingId;
+      }
+
+      return new FragmentChatBinding((ConstraintLayout) rootView, RecyclerViewList, emptyView,
+          searchView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

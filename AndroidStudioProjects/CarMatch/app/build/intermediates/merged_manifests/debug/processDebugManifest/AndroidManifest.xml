@@ -60,55 +60,62 @@
         android:testOnly="true"
         android:theme="@style/Theme.CarMatch" >
         <activity
-            android:name="com.example.carmatch.view.ChatActivity"
+            android:name="com.example.carmatch.view.activitys.MessageActivity"
             android:exported="false"
-            android:parentActivityName="com.example.carmatch.view.MainActivity" />
-        <activity
-            android:name="com.example.carmatch.view.FavVehicleActivity"
-            android:exported="false"
-            android:parentActivityName="com.example.carmatch.view.MainActivity" />
-        <activity
-            android:name="com.example.carmatch.view.DetailsVehicleActivity"
-            android:exported="false"
-            android:parentActivityName="com.example.carmatch.view.VehicleActivity"
+            android:parentActivityName="com.example.carmatch.view.activitys.ChatActivity"
             android:theme="@style/Theme.CarMatch.NoActionBar" />
         <activity
-            android:name="com.example.carmatch.view.PhotosVehicleActivity"
+            android:name="com.example.carmatch.view.activitys.ChatActivity"
             android:exported="false"
-            android:parentActivityName="com.example.carmatch.view.EditVehicleActivity"
+            android:parentActivityName="com.example.carmatch.view.activitys.MainActivity"
             android:theme="@style/Theme.CarMatch.NoActionBar" />
         <activity
-            android:name="com.example.carmatch.view.EditVehicleActivity"
+            android:name="com.example.carmatch.view.activitys.FavVehicleActivity"
             android:exported="false"
-            android:parentActivityName="com.example.carmatch.view.VehicleActivity"
+            android:parentActivityName="com.example.carmatch.view.activitys.MainActivity"
             android:theme="@style/Theme.CarMatch.NoActionBar" />
         <activity
-            android:name="com.example.carmatch.view.EditProfileActivity"
+            android:name="com.example.carmatch.view.activitys.DetailsVehicleActivity"
             android:exported="false"
-            android:parentActivityName="com.example.carmatch.view.ProfileActivity"
+            android:parentActivityName="com.example.carmatch.view.activitys.VehicleActivity"
             android:theme="@style/Theme.CarMatch.NoActionBar" />
         <activity
-            android:name="com.example.carmatch.view.ChangePasswordActivity"
+            android:name="com.example.carmatch.view.activitys.PhotosVehicleActivity"
             android:exported="false"
-            android:parentActivityName="com.example.carmatch.view.ProfileActivity"
+            android:parentActivityName="com.example.carmatch.view.activitys.EditVehicleActivity"
             android:theme="@style/Theme.CarMatch.NoActionBar" />
         <activity
-            android:name="com.example.carmatch.view.VehicleActivity"
+            android:name="com.example.carmatch.view.activitys.EditVehicleActivity"
             android:exported="false"
-            android:parentActivityName="com.example.carmatch.view.MainActivity"
+            android:parentActivityName="com.example.carmatch.view.activitys.VehicleActivity"
             android:theme="@style/Theme.CarMatch.NoActionBar" />
         <activity
-            android:name="com.example.carmatch.view.RegisterActivity"
+            android:name="com.example.carmatch.view.activitys.EditProfileActivity"
             android:exported="false"
-            android:parentActivityName="com.example.carmatch.view.LoginActivity"
+            android:parentActivityName="com.example.carmatch.view.activitys.ProfileActivity"
             android:theme="@style/Theme.CarMatch.NoActionBar" />
         <activity
-            android:name="com.example.carmatch.view.ProfileActivity"
+            android:name="com.example.carmatch.view.activitys.ChangePasswordActivity"
             android:exported="false"
-            android:parentActivityName="com.example.carmatch.view.MainActivity"
+            android:parentActivityName="com.example.carmatch.view.activitys.ProfileActivity"
             android:theme="@style/Theme.CarMatch.NoActionBar" />
         <activity
-            android:name="com.example.carmatch.view.LoginActivity"
+            android:name="com.example.carmatch.view.activitys.VehicleActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.carmatch.view.activitys.MainActivity"
+            android:theme="@style/Theme.CarMatch.NoActionBar" />
+        <activity
+            android:name="com.example.carmatch.view.activitys.RegisterActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.carmatch.view.activitys.LoginActivity"
+            android:theme="@style/Theme.CarMatch.NoActionBar" />
+        <activity
+            android:name="com.example.carmatch.view.activitys.ProfileActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.carmatch.view.activitys.MainActivity"
+            android:theme="@style/Theme.CarMatch.NoActionBar" />
+        <activity
+            android:name="com.example.carmatch.view.activitys.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.CarMatch.NoActionBar" >
@@ -119,7 +126,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.carmatch.view.MainActivity"
+            android:name="com.example.carmatch.view.activitys.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.CarMatch.NoActionBar" />
 

@@ -137,7 +137,10 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@null"
-                android:src="@drawable/chat" />
+                android:src="@drawable/chat"
+                android:text="Conversar"
+                android:clickable="true"
+                android:enabled="true" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

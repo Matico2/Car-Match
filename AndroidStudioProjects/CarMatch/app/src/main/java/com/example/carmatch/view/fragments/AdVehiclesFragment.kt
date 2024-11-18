@@ -1,17 +1,19 @@
-package com.example.carmatch.fragments
+package com.example.carmatch.view.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carmatch.adapters.AdVehiclesAdapter
 import com.example.carmatch.model.AdVehicle
+import com.example.carmatch.model.Chat
 import com.example.carmatch.model.User
 import com.example.carmatch.model.Vehicle
+import com.example.carmatch.view.activitys.ChatActivity
 import com.example.carmatch1.databinding.FragmentAdVehiclesBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -34,14 +36,8 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
     ): View {
         binding = FragmentAdVehiclesBinding.inflate(inflater, container, false)
         adVehiclesAdapter = AdVehiclesAdapter(listAd, listUser, listVehicle, this)
-        binding.vehicleCardView.adapter = adVehiclesAdapter
-        binding.vehicleCardView.layoutManager = LinearLayoutManager(requireContext())
-        binding.vehicleCardView.addItemDecoration(
-            DividerItemDecoration(
-                context,
-                LinearLayoutManager.VERTICAL
-            )
-        )
+        binding.RecyclerViewList.adapter = adVehiclesAdapter
+        binding.RecyclerViewList.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
     }
     
@@ -52,19 +48,21 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
     
     private fun listenerAds() {
         val currentUserId = firebaseAuth.currentUser?.uid
-        eventSnapShot = firestore
-            .collection("AdVehicle")
+        firestore.collection("AdVehicle")
             .whereEqualTo("status", true)
-            .whereNotEqualTo("idUser", currentUserId)
             .addSnapshotListener { querySnapshot, error ->
+                if (error != null) {
+                    Log.e("Firestore Error", "Error fetching ads: ${error.message}", error)
+                    return@addSnapshotListener
+                }
                 if (querySnapshot != null) {
+                    Log.d("Firestore", "Documents fetched: ${querySnapshot.size()}")
                     listAd.clear()
                     listUser.clear()
                     listVehicle.clear()
-                    
                     for (adDocument in querySnapshot.documents) {
                         val adVehicle = adDocument.toObject(AdVehicle::class.java)
-                        if (adVehicle != null) {
+                        if (adVehicle != null && adVehicle.idUser != currentUserId) {
                             listAd.add(adVehicle)
                             fetchVehicleAndUser(adVehicle) { isFetched ->
                                 if (isFetched && listAd.size == listUser.size && listAd.size == listVehicle.size) {
@@ -92,7 +90,10 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
                                 listUser.add(user)
                                 onComplete(true)
                             } else {
-                                Log.e("Firestore Error", "User not found")
+                                Log.e(
+                                    "Firestore Error",
+                                    "User not found for ID: ${adVehicle.idUser}"
+                                )
                                 onComplete(false)
                             }
                         }
@@ -100,18 +101,78 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
                             Log.e("Firestore Error", "Error fetching user: ", e)
                             onComplete(false)
                         }
+                } else {
+                    Log.e("Firestore Error", "Vehicle not found for ID: ${adVehicle.idVehicle}")
+                    onComplete(false)
                 }
             }
-        
+            .addOnFailureListener { e ->
+                Log.e("Firestore Error", "Error fetching vehicle: ", e)
+                onComplete(false)
+            }
     }
     
     override fun onItemClick(adVehicle: AdVehicle) {
-        // Implementação do clique no item do anúncio
+        val currentUserId = firebaseAuth.currentUser?.uid ?: run {
+            Log.e("Error", "Usuário não autenticado!")
+            return
+        }
+        
+        firestore.collection("Chat")
+            .whereEqualTo("idUser1", currentUserId)
+            .whereEqualTo("idUser2", adVehicle.idUser)
+            .whereEqualTo("idAd", adVehicle.idAd)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.documents.isNotEmpty()) {
+                    val chatId = querySnapshot.documents[0].id
+                    navigateToChat(chatId)
+                } else {
+                    val chat = Chat(
+                        idChat = "",  // Deixe o ID em branco para gerar automaticamente
+                        idUser1 = currentUserId,
+                        idUser2 = adVehicle.idUser,
+                        idVehicle = adVehicle.idVehicle,
+                        idAd = adVehicle.idAd,
+                        status = true,
+                        participants = listOf(currentUserId, adVehicle.idUser) // Certifique-se que 'participants' é uma lista de strings
+                    )
+                    firestore.collection("Chat")
+                        .add(chat)
+                        .addOnSuccessListener { documentReference ->
+                            val newChatId = documentReference.id
+                            firestore.collection("Chat").document(newChatId).update("idChat", newChatId)
+                                .addOnSuccessListener {
+                                    Log.d("Firestore", "Chat criado com sucesso!")
+                                    navigateToChat(newChatId)
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.e("Firestore Error", "Erro ao atualizar ID do chat: ${e.message}", e)
+                                }
+                        }
+                        .addOnFailureListener { e ->
+                            Log.e("Firestore Error", "Erro ao criar o chat: ${e.message}", e)
+                        }
+                }
+            }
+            .addOnFailureListener { e ->
+                Log.e("Firestore Error", "Erro ao verificar chat existente: ${e.message}", e)
+            }
     }
+    
+    
+    private fun navigateToChat(chatId: String) {
+        val intent = Intent(requireContext(), ChatActivity::class.java).apply {
+            putExtra("chatId", chatId)
+        }
+        startActivity(intent)
+    }
+    
     
     override fun onDestroy() {
         super.onDestroy()
-        eventSnapShot.remove()
+        if (::eventSnapShot.isInitialized) {
+            eventSnapShot.remove()
+        }
     }
 }
-

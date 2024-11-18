@@ -4,10 +4,10 @@ package com.example.carmatch1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -18,24 +18,24 @@ import java.lang.String;
 
 public final class FragmentAdVehiclesBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ConstraintLayout rootView;
+
+  @NonNull
+  public final RecyclerView RecyclerViewList;
 
   @NonNull
   public final SearchView searchView;
 
-  @NonNull
-  public final RecyclerView vehicleCardView;
-
-  private FragmentAdVehiclesBinding(@NonNull LinearLayout rootView, @NonNull SearchView searchView,
-      @NonNull RecyclerView vehicleCardView) {
+  private FragmentAdVehiclesBinding(@NonNull ConstraintLayout rootView,
+      @NonNull RecyclerView RecyclerViewList, @NonNull SearchView searchView) {
     this.rootView = rootView;
+    this.RecyclerViewList = RecyclerViewList;
     this.searchView = searchView;
-    this.vehicleCardView = vehicleCardView;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -60,19 +60,20 @@ public final class FragmentAdVehiclesBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.RecyclerViewList;
+      RecyclerView RecyclerViewList = ViewBindings.findChildViewById(rootView, id);
+      if (RecyclerViewList == null) {
+        break missingId;
+      }
+
       id = R.id.searchView;
       SearchView searchView = ViewBindings.findChildViewById(rootView, id);
       if (searchView == null) {
         break missingId;
       }
 
-      id = R.id.vehicleCardView;
-      RecyclerView vehicleCardView = ViewBindings.findChildViewById(rootView, id);
-      if (vehicleCardView == null) {
-        break missingId;
-      }
-
-      return new FragmentAdVehiclesBinding((LinearLayout) rootView, searchView, vehicleCardView);
+      return new FragmentAdVehiclesBinding((ConstraintLayout) rootView, RecyclerViewList,
+          searchView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -24,16 +24,16 @@ public final class ActivityVehicleBinding implements ViewBinding {
   public final Button btnAddVehicle;
 
   @NonNull
-  public final FrameLayout fragmentContainer;
+  public final FrameLayout fragmentContainerAd;
 
   @NonNull
   public final ToolbarAppBinding includeMainToolbar;
 
   private ActivityVehicleBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnAddVehicle,
-      @NonNull FrameLayout fragmentContainer, @NonNull ToolbarAppBinding includeMainToolbar) {
+      @NonNull FrameLayout fragmentContainerAd, @NonNull ToolbarAppBinding includeMainToolbar) {
     this.rootView = rootView;
     this.btnAddVehicle = btnAddVehicle;
-    this.fragmentContainer = fragmentContainer;
+    this.fragmentContainerAd = fragmentContainerAd;
     this.includeMainToolbar = includeMainToolbar;
   }
 
@@ -70,9 +70,9 @@ public final class ActivityVehicleBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.fragment_container;
-      FrameLayout fragmentContainer = ViewBindings.findChildViewById(rootView, id);
-      if (fragmentContainer == null) {
+      id = R.id.fragment_container_ad;
+      FrameLayout fragmentContainerAd = ViewBindings.findChildViewById(rootView, id);
+      if (fragmentContainerAd == null) {
         break missingId;
       }
 
@@ -84,7 +84,7 @@ public final class ActivityVehicleBinding implements ViewBinding {
       ToolbarAppBinding binding_includeMainToolbar = ToolbarAppBinding.bind(includeMainToolbar);
 
       return new ActivityVehicleBinding((ConstraintLayout) rootView, btnAddVehicle,
-          fragmentContainer, binding_includeMainToolbar);
+          fragmentContainerAd, binding_includeMainToolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

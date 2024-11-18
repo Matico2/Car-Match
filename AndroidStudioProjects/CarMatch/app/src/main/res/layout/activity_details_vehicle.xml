@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.carmatch.view.DetailsVehicleActivity">
+    tools:context="com.example.carmatch.view.activitys.DetailsVehicleActivity">
 
     <include
         android:id="@+id/includeMainToolbar"

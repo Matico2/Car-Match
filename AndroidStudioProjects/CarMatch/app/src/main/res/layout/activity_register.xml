@@ -5,7 +5,7 @@
     android:id="@+id/img_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.carmatch.view.RegisterActivity">
+    tools:context="com.example.carmatch.view.activitys.RegisterActivity">
     <include
         android:id="@+id/includeToolbarApp"
         layout="@layout/toolbar_app"

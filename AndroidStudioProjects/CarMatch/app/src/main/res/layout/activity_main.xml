@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.carmatch.view.MainActivity">
+    tools:context="com.example.carmatch.view.activitys.MainActivity">
 
     <include
         android:id="@+id/includeMainToolbar"
@@ -22,8 +22,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/includeMainToolbar"
-        tools:listitem="@layout/fragment_ad_vehicles"
-        />
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/fragment_ad_vehicles" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
