@@ -30,17 +30,6 @@
         app:layout_constraintStart_toEndOf="@id/imageContatoFoto"
         app:layout_constraintTop_toTopOf="@id/imageContatoFoto" />
 
-    <TextView
-        android:id="@+id/textStatus"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:text="Status"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/textUserName"
-        app:layout_constraintTop_toBottomOf="@id/textUserName" />
 
     <TextView
         android:id="@+id/textVehicleModel"
@@ -53,6 +42,6 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/textUserName"
-        app:layout_constraintTop_toBottomOf="@id/textStatus" />
+        app:layout_constraintTop_toBottomOf="@id/textUserName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

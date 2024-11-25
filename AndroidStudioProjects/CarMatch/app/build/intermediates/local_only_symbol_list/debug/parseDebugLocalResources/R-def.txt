@@ -9,6 +9,7 @@ color colorLightOrange
 color colorVibrantOrange
 color colorWhiteWhite
 color red
+color verde_mensagem
 color white
 drawable ad_icon
 drawable add_photo
@@ -20,6 +21,8 @@ drawable car_match_icon
 drawable chat
 drawable edit
 drawable fundo_chat
+drawable fundo_conversa_dest
+drawable fundo_conversa_send
 drawable ic_icon_app_background
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -45,6 +48,7 @@ id btnSaveVehicle
 id btnStartConversation
 id btn_add_photo
 id btn_edit_profile
+id btn_send
 id buttonCancel
 id buttonChangePassword
 id buttonLogin
@@ -61,7 +65,6 @@ id editTextDescription
 id editTextEmail
 id editTextFuelType
 id editTextKm
-id editTextMessage
 id editTextName
 id editTextNewPassword
 id editTextPlate
@@ -71,7 +74,6 @@ id editTextVehicleBrand
 id editTextVehicleModel
 id editTextVehicleYear
 id emptyView
-id floatingActionButton
 id fragment_container
 id fragment_container_ad
 id fragment_container_chat
@@ -106,12 +108,13 @@ id textInputDate
 id textInputEmail
 id textInputName
 id textInputPassword
-id textStatus
 id textUserName
 id textVehicleModel
 id textViewCopyright
 id textViewForgotPassword
 id textViewRegister
+id text_dest
+id text_send
 id toolbarApp
 id tvViewMore
 id txtBrand
@@ -128,6 +131,7 @@ id txtYearFuel
 id txt_change_password
 id txt_delete_account
 id txt_email
+id txt_menssage
 id txt_username
 id userName
 id vehicleCondition
@@ -159,6 +163,8 @@ layout fragment_edit_profile
 layout fragment_fav_vehicle
 layout fragment_vehicle_list
 layout item_chat
+layout item_mensafens_dest
+layout item_mensagem_send
 layout item_vehicle
 layout item_vehicle_fav
 layout item_vehicle_image

@@ -2201,6 +2201,7 @@ int color switch_thumb_normal_material_dark 0x7f05031a
 int color switch_thumb_normal_material_light 0x7f05031b
 int color tooltip_background_dark 0x7f05031c
 int color tooltip_background_light 0x7f05031d
+int color verde_mensagem 0x7f05031f
 int color white 0x7f05031e
 int dimen abc_action_bar_content_inset_material 0x7f060000
 int dimen abc_action_bar_content_inset_with_nav 0x7f060001
@@ -3137,6 +3138,8 @@ int drawable design_password_eye 0x7f0700a2
 int drawable design_snackbar_background 0x7f0700a3
 int drawable edit 0x7f0700a4
 int drawable fundo_chat 0x7f0700a5
+int drawable fundo_conversa_dest 0x7f070117
+int drawable fundo_conversa_send 0x7f070118
 int drawable googleg_disabled_color_18 0x7f0700a6
 int drawable googleg_standard_color_18 0x7f0700a7
 int drawable ic_arrow_back_black_24 0x7f0700a8
@@ -3374,6 +3377,7 @@ int id btnSaveVehicle 0x7f080078
 int id btnStartConversation 0x7f080079
 int id btn_add_photo 0x7f08007a
 int id btn_edit_profile 0x7f08007b
+int id btn_send 0x7f080280
 int id buttonCancel 0x7f08007c
 int id buttonChangePassword 0x7f08007d
 int id buttonLogin 0x7f08007e
@@ -3464,7 +3468,6 @@ int id editTextDescription 0x7f0800d2
 int id editTextEmail 0x7f0800d3
 int id editTextFuelType 0x7f0800d4
 int id editTextKm 0x7f0800d5
-int id editTextMessage 0x7f0800d6
 int id editTextName 0x7f0800d7
 int id editTextNewPassword 0x7f0800d8
 int id editTextPlate 0x7f0800d9
@@ -3499,7 +3502,6 @@ int id fitXY 0x7f0800f5
 int id fixed 0x7f0800f6
 int id flip 0x7f0800f7
 int id floating 0x7f0800f8
-int id floatingActionButton 0x7f0800f9
 int id forever 0x7f0800fa
 int id fragment_container 0x7f0800fb
 int id fragment_container_ad 0x7f0800fc
@@ -3800,16 +3802,17 @@ int id textInputPassword 0x7f080222
 int id textSpacerNoButtons 0x7f080223
 int id textSpacerNoTitle 0x7f080224
 int id textStart 0x7f080225
-int id textStatus 0x7f080226
 int id textTop 0x7f080227
 int id textUserName 0x7f080228
 int id textVehicleModel 0x7f080229
 int id textViewCopyright 0x7f08022a
 int id textViewForgotPassword 0x7f08022b
 int id textViewRegister 0x7f08022c
+int id text_dest 0x7f080282
 int id text_input_end_icon 0x7f08022d
 int id text_input_error_icon 0x7f08022e
 int id text_input_start_icon 0x7f08022f
+int id text_send 0x7f080283
 int id textinput_counter 0x7f080230
 int id textinput_error 0x7f080231
 int id textinput_helper_text 0x7f080232
@@ -3852,6 +3855,7 @@ int id txtYearFuel 0x7f080256
 int id txt_change_password 0x7f080257
 int id txt_delete_account 0x7f080258
 int id txt_email 0x7f080259
+int id txt_menssage 0x7f080281
 int id txt_username 0x7f08025a
 int id unchecked 0x7f08025b
 int id uniform 0x7f08025c
@@ -4048,6 +4052,8 @@ int layout fragment_vehicle_list 0x7f0b0042
 int layout ime_base_split_test_activity 0x7f0b0043
 int layout ime_secondary_split_test_activity 0x7f0b0044
 int layout item_chat 0x7f0b0045
+int layout item_mensafens_dest 0x7f0b0088
+int layout item_mensagem_send 0x7f0b0089
 int layout item_vehicle 0x7f0b0046
 int layout item_vehicle_fav 0x7f0b0047
 int layout item_vehicle_image 0x7f0b0048

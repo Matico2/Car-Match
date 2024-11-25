@@ -42,10 +42,10 @@ class VehicleListFragment : Fragment(), VehiclesAdapter.OnItemClickListener {
         )
         return binding.root
     }
-    override fun onAdvertiseClick(vehicle: Vehicle) {
-        Log.d("VehicleListFragment", "Botão de anúncio clicado para veículo: ${vehicle.vehicleId}")
-        adVehicle(vehicle)
-    }
+    interface OnItemClickListener {
+        fun onItemClick(vehicle: Vehicle)
+        fun onAdvertiseClick(vehicle: Vehicle) }
+    
     
     private fun adVehicle(vehicle: Vehicle) {
         val idUser = firebaseAuth.currentUser?.uid ?: run {

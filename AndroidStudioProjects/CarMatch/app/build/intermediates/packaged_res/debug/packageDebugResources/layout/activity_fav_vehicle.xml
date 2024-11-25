@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragment_container_fav"
         android:layout_width="0dp"
         android:layout_height="0dp"

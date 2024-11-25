@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carmatch1.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -22,7 +22,7 @@ public final class ItemVehicleBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final FloatingActionButton btnAd;
+  public final MaterialButton btnAd;
 
   @NonNull
   public final ShapeableImageView imgPhoto;
@@ -36,9 +36,9 @@ public final class ItemVehicleBinding implements ViewBinding {
   @NonNull
   public final TextView txtPrice;
 
-  private ItemVehicleBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FloatingActionButton btnAd, @NonNull ShapeableImageView imgPhoto,
-      @NonNull TextView txtBrand, @NonNull TextView txtModel, @NonNull TextView txtPrice) {
+  private ItemVehicleBinding(@NonNull ConstraintLayout rootView, @NonNull MaterialButton btnAd,
+      @NonNull ShapeableImageView imgPhoto, @NonNull TextView txtBrand, @NonNull TextView txtModel,
+      @NonNull TextView txtPrice) {
     this.rootView = rootView;
     this.btnAd = btnAd;
     this.imgPhoto = imgPhoto;
@@ -75,7 +75,7 @@ public final class ItemVehicleBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btnAd;
-      FloatingActionButton btnAd = ViewBindings.findChildViewById(rootView, id);
+      MaterialButton btnAd = ViewBindings.findChildViewById(rootView, id);
       if (btnAd == null) {
         break missingId;
       }

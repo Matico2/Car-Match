@@ -2202,6 +2202,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
+color verde_mensagem
 color white
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
@@ -3138,6 +3139,8 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable edit
 drawable fundo_chat
+drawable fundo_conversa_dest
+drawable fundo_conversa_send
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3375,6 +3378,7 @@ id btnSaveVehicle
 id btnStartConversation
 id btn_add_photo
 id btn_edit_profile
+id btn_send
 id buttonCancel
 id buttonChangePassword
 id buttonLogin
@@ -3465,7 +3469,6 @@ id editTextDescription
 id editTextEmail
 id editTextFuelType
 id editTextKm
-id editTextMessage
 id editTextName
 id editTextNewPassword
 id editTextPlate
@@ -3500,7 +3503,6 @@ id fitXY
 id fixed
 id flip
 id floating
-id floatingActionButton
 id forever
 id fragment_container
 id fragment_container_ad
@@ -3801,16 +3803,17 @@ id textInputPassword
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textStatus
 id textTop
 id textUserName
 id textVehicleModel
 id textViewCopyright
 id textViewForgotPassword
 id textViewRegister
+id text_dest
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
+id text_send
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -3853,6 +3856,7 @@ id txtYearFuel
 id txt_change_password
 id txt_delete_account
 id txt_email
+id txt_menssage
 id txt_username
 id unchecked
 id uniform
@@ -4049,6 +4053,8 @@ layout fragment_vehicle_list
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_chat
+layout item_mensafens_dest
+layout item_mensagem_send
 layout item_vehicle
 layout item_vehicle_fav
 layout item_vehicle_image

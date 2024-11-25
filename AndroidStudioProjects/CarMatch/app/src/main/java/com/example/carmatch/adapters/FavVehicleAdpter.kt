@@ -1,49 +1,57 @@
-package com.example.carmatch.adapters
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carmatch.model.Vehicle
-import com.example.carmatch1.databinding.ItemVehicleBinding
+import com.example.carmatch1.databinding.ItemVehicleFavBinding
 
-class FavVehicleAdapter(private val listener: OnClickListener) :
-    ListAdapter<Vehicle, FavVehicleAdapter.FavVehiclesViewHolder>(DiffCallback()) {
+class FavVehicleAdapter(private val itemClickListener: OnClickListener) :
+    RecyclerView.Adapter<FavVehicleAdapter.VehiclesViewHolder>() {
     
     interface OnClickListener {
         fun onVehicleClick(vehicleId: String)
+        fun onRemoveFavoriteClick(vehicleId: String)
+        fun onChatClick(chatId: String)
     }
     
-    inner class FavVehiclesViewHolder(private val binding: ItemVehicleBinding) :
+    private var listFavVehicle = listOf<Vehicle>()
+    
+    fun addList(list: List<Vehicle>) {
+        listFavVehicle = list
+        notifyDataSetChanged()
+    }
+    
+    inner class VehiclesViewHolder(private val binding: ItemVehicleFavBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        
         fun bind(vehicle: Vehicle) {
             binding.txtModel.text = vehicle.model
+            binding.txtBrand.text = vehicle.brand
             binding.txtPrice.text = vehicle.price.toString()
-            // Configure mais informações do veículo aqui
             
-            binding.root.setOnClickListener {
-                listener.onVehicleClick(vehicle.vehicleId)
+            binding.heartIcon.setOnClickListener {
+                itemClickListener.onRemoveFavoriteClick(vehicle.vehicleId)
+            }
+            
+            binding.btnStartConversation.setOnClickListener {
+                itemClickListener.onChatClick(vehicle.vehicleId)
+            }
+            
+            itemView.setOnClickListener {
+                itemClickListener.onVehicleClick(vehicle.vehicleId)
             }
         }
     }
     
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavVehiclesViewHolder {
-        val binding = ItemVehicleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return FavVehiclesViewHolder(binding)
+    
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehiclesViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemVehicleFavBinding.inflate(inflater, parent, false)
+        return VehiclesViewHolder(binding)
     }
     
-    override fun onBindViewHolder(holder: FavVehiclesViewHolder, position: Int) {
-        holder.bind(getItem(position))
-    }
+    override fun getItemCount(): Int = listFavVehicle.size
     
-    class DiffCallback : DiffUtil.ItemCallback<Vehicle>() {
-        override fun areItemsTheSame(oldItem: Vehicle, newItem: Vehicle): Boolean {
-            return oldItem.vehicleId == newItem.vehicleId
-        }
-        
-        override fun areContentsTheSame(oldItem: Vehicle, newItem: Vehicle): Boolean {
-            return oldItem == newItem
-        }
+    override fun onBindViewHolder(holder: VehiclesViewHolder, position: Int) {
+        holder.bind(listFavVehicle[position])
     }
 }

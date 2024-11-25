@@ -27,21 +27,17 @@ public final class ItemChatBinding implements ViewBinding {
   public final ShapeableImageView imageContatoFoto;
 
   @NonNull
-  public final TextView textStatus;
-
-  @NonNull
   public final TextView textUserName;
 
   @NonNull
   public final TextView textVehicleModel;
 
   private ItemChatBinding(@NonNull ConstraintLayout rootView, @NonNull ConstraintLayout clItemChat,
-      @NonNull ShapeableImageView imageContatoFoto, @NonNull TextView textStatus,
-      @NonNull TextView textUserName, @NonNull TextView textVehicleModel) {
+      @NonNull ShapeableImageView imageContatoFoto, @NonNull TextView textUserName,
+      @NonNull TextView textVehicleModel) {
     this.rootView = rootView;
     this.clItemChat = clItemChat;
     this.imageContatoFoto = imageContatoFoto;
-    this.textStatus = textStatus;
     this.textUserName = textUserName;
     this.textVehicleModel = textVehicleModel;
   }
@@ -81,12 +77,6 @@ public final class ItemChatBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textStatus;
-      TextView textStatus = ViewBindings.findChildViewById(rootView, id);
-      if (textStatus == null) {
-        break missingId;
-      }
-
       id = R.id.textUserName;
       TextView textUserName = ViewBindings.findChildViewById(rootView, id);
       if (textUserName == null) {
@@ -100,7 +90,7 @@ public final class ItemChatBinding implements ViewBinding {
       }
 
       return new ItemChatBinding((ConstraintLayout) rootView, clItemChat, imageContatoFoto,
-          textStatus, textUserName, textVehicleModel);
+          textUserName, textVehicleModel);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

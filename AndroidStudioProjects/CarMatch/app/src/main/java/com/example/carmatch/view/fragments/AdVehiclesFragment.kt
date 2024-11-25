@@ -118,6 +118,11 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
             return
         }
         
+        if (currentUserId == adVehicle.idUser) {
+            Log.e("Error", "Usuário tentando conversar consigo mesmo!")
+            return
+        }
+        
         firestore.collection("Chat")
             .whereEqualTo("idUser1", currentUserId)
             .whereEqualTo("idUser2", adVehicle.idUser)
@@ -129,13 +134,13 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
                     navigateToChat(chatId)
                 } else {
                     val chat = Chat(
-                        idChat = "",  // Deixe o ID em branco para gerar automaticamente
+                        idChat = "",
                         idUser1 = currentUserId,
                         idUser2 = adVehicle.idUser,
                         idVehicle = adVehicle.idVehicle,
                         idAd = adVehicle.idAd,
                         status = true,
-                        participants = listOf(currentUserId, adVehicle.idUser) // Certifique-se que 'participants' é uma lista de strings
+                        participants = listOf(currentUserId, adVehicle.idUser)
                     )
                     firestore.collection("Chat")
                         .add(chat)
@@ -159,6 +164,7 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
                 Log.e("Firestore Error", "Erro ao verificar chat existente: ${e.message}", e)
             }
     }
+    
     
     
     private fun navigateToChat(chatId: String) {

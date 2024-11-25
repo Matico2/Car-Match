@@ -26,10 +26,7 @@ public final class ActivityMessageBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextInputEditText editTextMessage;
-
-  @NonNull
-  public final FloatingActionButton floatingActionButton;
+  public final FloatingActionButton btnSend;
 
   @NonNull
   public final ImageView imagePhoto;
@@ -44,20 +41,23 @@ public final class ActivityMessageBinding implements ViewBinding {
   public final MaterialToolbar tb;
 
   @NonNull
+  public final TextInputEditText txtMenssage;
+
+  @NonNull
   public final TextView txtUserName;
 
   private ActivityMessageBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextInputEditText editTextMessage,
-      @NonNull FloatingActionButton floatingActionButton, @NonNull ImageView imagePhoto,
+      @NonNull FloatingActionButton btnSend, @NonNull ImageView imagePhoto,
       @NonNull TextInputLayout inputLayoutMessage, @NonNull RecyclerView recyclerViewChat,
-      @NonNull MaterialToolbar tb, @NonNull TextView txtUserName) {
+      @NonNull MaterialToolbar tb, @NonNull TextInputEditText txtMenssage,
+      @NonNull TextView txtUserName) {
     this.rootView = rootView;
-    this.editTextMessage = editTextMessage;
-    this.floatingActionButton = floatingActionButton;
+    this.btnSend = btnSend;
     this.imagePhoto = imagePhoto;
     this.inputLayoutMessage = inputLayoutMessage;
     this.recyclerViewChat = recyclerViewChat;
     this.tb = tb;
+    this.txtMenssage = txtMenssage;
     this.txtUserName = txtUserName;
   }
 
@@ -88,15 +88,9 @@ public final class ActivityMessageBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.editTextMessage;
-      TextInputEditText editTextMessage = ViewBindings.findChildViewById(rootView, id);
-      if (editTextMessage == null) {
-        break missingId;
-      }
-
-      id = R.id.floatingActionButton;
-      FloatingActionButton floatingActionButton = ViewBindings.findChildViewById(rootView, id);
-      if (floatingActionButton == null) {
+      id = R.id.btn_send;
+      FloatingActionButton btnSend = ViewBindings.findChildViewById(rootView, id);
+      if (btnSend == null) {
         break missingId;
       }
 
@@ -124,14 +118,20 @@ public final class ActivityMessageBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.txt_menssage;
+      TextInputEditText txtMenssage = ViewBindings.findChildViewById(rootView, id);
+      if (txtMenssage == null) {
+        break missingId;
+      }
+
       id = R.id.txtUserName;
       TextView txtUserName = ViewBindings.findChildViewById(rootView, id);
       if (txtUserName == null) {
         break missingId;
       }
 
-      return new ActivityMessageBinding((ConstraintLayout) rootView, editTextMessage,
-          floatingActionButton, imagePhoto, inputLayoutMessage, recyclerViewChat, tb, txtUserName);
+      return new ActivityMessageBinding((ConstraintLayout) rootView, btnSend, imagePhoto,
+          inputLayoutMessage, recyclerViewChat, tb, txtMenssage, txtUserName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
