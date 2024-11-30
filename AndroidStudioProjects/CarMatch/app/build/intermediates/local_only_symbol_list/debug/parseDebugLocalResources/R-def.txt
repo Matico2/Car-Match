@@ -54,6 +54,7 @@ id buttonChangePassword
 id buttonLogin
 id buttonRegister
 id buttonSave
+id cardView
 id clItemChat
 id editTextCity
 id editTextCondition
@@ -81,7 +82,7 @@ id fragment_container_fav
 id heartIcon
 id imageContatoFoto
 id imageIcon
-id imagePhoto
+id imageView
 id imgPhoto
 id img_profile
 id img_profile_photo
@@ -100,6 +101,7 @@ id materialIcon
 id nav_graph
 id photoContainer
 id recyclerViewChat
+id recyclerViewListFav
 id searchView
 id tb
 id textInputCPF
@@ -137,7 +139,6 @@ id userName
 id vehicleCondition
 id vehicleDescription
 id vehicleFuelType
-id vehicleImages
 id vehicleKm
 id vehicleLocation
 id vehicleModel
@@ -163,6 +164,7 @@ layout fragment_edit_profile
 layout fragment_fav_vehicle
 layout fragment_vehicle_list
 layout item_chat
+layout item_image
 layout item_mensafens_dest
 layout item_mensagem_send
 layout item_vehicle

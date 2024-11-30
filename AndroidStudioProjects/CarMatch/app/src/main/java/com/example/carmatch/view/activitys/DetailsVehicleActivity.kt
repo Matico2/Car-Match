@@ -9,6 +9,7 @@ import com.example.carmatch.adapters.ImagePagerAdapter
 import com.example.carmatch.model.Vehicle
 import com.example.carmatch1.databinding.ActivityDetailsVehicleBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 
 class DetailsVehicleActivity : AppCompatActivity() {
     private val binding by lazy { ActivityDetailsVehicleBinding.inflate(layoutInflater) }
@@ -96,12 +97,40 @@ class DetailsVehicleActivity : AppCompatActivity() {
     }
     
     private fun loadImages(userUID: String, vehicleId: String) {
-        val imagePaths = listOf(
-            "photos/vehicles/$userUID/$vehicleId/photo_0.jpg",
-        )
-        val adapter = ImagePagerAdapter(this, imagePaths)
-        binding.viewPagerImages.adapter = adapter
+        val storageReference = FirebaseStorage.getInstance().reference.child("photos/vehicles/$userUID/$vehicleId")
+        val imagePaths = mutableListOf<String>()
+        
+        // Listar todas as imagens na pasta do veículo
+        storageReference.listAll()
+            .addOnSuccessListener { listResult ->
+                listResult.items.forEach { item ->
+                    item.downloadUrl.addOnSuccessListener { uri ->
+                        imagePaths.add(uri.toString())
+                        if (imagePaths.size == listResult.items.size) {
+                            // Configurar o ViewPager assim que todas as URLs forem carregadas
+                            val adapter = ImagePagerAdapter(this, imagePaths)
+                            binding.viewPagerImages.adapter = adapter
+                            setupViewPager()
+                        }
+                    }.addOnFailureListener {
+                        Log.e("ImageError", "Erro ao carregar URL da imagem: ${it.message}")
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("StorageError", "Erro ao listar imagens no Firebase Storage: ${exception.message}")
+            }
     }
+    
+    // Configurar o ViewPager para loop
+    private fun setupViewPager() {
+        binding.viewPagerImages.apply {
+            clipToPadding = false
+            setPadding(48, 0, 48, 0)
+            pageMargin = 16
+        }
+    }
+    
     
     private fun includeToolbarApp() {
         val toolbar = binding.includeMainToolbar.toolbarApp

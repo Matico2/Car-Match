@@ -1,5 +1,6 @@
 package com.example.carmatch.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -16,14 +17,8 @@ class MensagemAdapter(
     private var listMensagem = emptyList<Menssage>()
     
     fun addList(list: List<Menssage>) {
-        listMensagem = list // Atualiza a lista interna
-        notifyDataSetChanged() // Notifica a RecyclerView sobre as mudanças
-    }
-    
-    
-    // Método para recuperar mensagens atuais
-    fun getCurrentMessages(): List<Menssage> {
-        return listMensagem
+        listMensagem = list
+        notifyDataSetChanged()
     }
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -58,8 +53,12 @@ class MensagemAdapter(
     
     override fun getItemViewType(position: Int): Int {
         val mensagem = listMensagem[position]
-        val idUser = FirebaseAuth.getInstance().currentUser?.uid
-        return if (idUser == mensagem.senderId) Constants.TYPE_SEND else Constants.TYPE_DEST
+        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
+        return if (mensagem.senderId == currentUserId) {
+            Constants.TYPE_SEND
+        } else {
+            Constants.TYPE_DEST
+        }
     }
     
     

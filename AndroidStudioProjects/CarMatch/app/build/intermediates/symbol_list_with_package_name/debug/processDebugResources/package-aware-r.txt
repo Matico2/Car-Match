@@ -3388,6 +3388,7 @@ id buttonSave
 id cache_measures
 id callMeasure
 id cancel_button
+id cardView
 id carryVelocity
 id center
 id centerCrop
@@ -3537,7 +3538,7 @@ id ignoreRequest
 id image
 id imageContatoFoto
 id imageIcon
-id imagePhoto
+id imageView
 id imgPhoto
 id img_profile
 id img_profile_photo
@@ -3700,6 +3701,7 @@ id radio
 id ratio
 id rectangles
 id recyclerViewChat
+id recyclerViewListFav
 id report_drawn
 id reverseSawtooth
 id right
@@ -3867,7 +3869,6 @@ id userName
 id vehicleCondition
 id vehicleDescription
 id vehicleFuelType
-id vehicleImages
 id vehicleKm
 id vehicleLocation
 id vehicleModel
@@ -4053,6 +4054,7 @@ layout fragment_vehicle_list
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_chat
+layout item_image
 layout item_mensafens_dest
 layout item_mensagem_send
 layout item_vehicle

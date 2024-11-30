@@ -12,6 +12,8 @@ import com.example.carmatch.model.Vehicle
 import com.example.carmatch1.R
 import com.example.carmatch1.databinding.ItemVehicleBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import java.util.UUID
 
 class VehiclesAdapter(private val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<VehiclesAdapter.VehiclesViewHolder>() {
@@ -29,7 +31,6 @@ class VehiclesAdapter(private val itemClickListener: OnItemClickListener) : Recy
     
     inner class VehiclesViewHolder(private val binding: ItemVehicleBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(vehicle: Vehicle) {
-            
             binding.txtBrand.text = vehicle.brand
             binding.txtModel.text = vehicle.model
             binding.txtPrice.text = "R$ ${vehicle.price}"
@@ -46,6 +47,19 @@ class VehiclesAdapter(private val itemClickListener: OnItemClickListener) : Recy
                 .addOnFailureListener {
                     Log.e("FirestoreError", "Erro ao verificar anúncio: ${it.message}")
                 }
+            
+            val imagePath = "photos/vehicles/${vehicle.userUID}/${vehicle.vehicleId}/photo_0.jpg"
+            val storageReference = FirebaseStorage.getInstance().reference.child(imagePath)
+            
+       
+            storageReference.downloadUrl.addOnSuccessListener { uri ->
+                Picasso.get()
+                    .load(uri)
+                    .placeholder(R.drawable.img_vehicle)
+                    .into(binding.imgPhoto)
+            }.addOnFailureListener {
+                Log.e("ImageError", "Erro ao carregar a imagem do veículo: ${it.message}")
+            }
             
             binding.btnAd.setOnClickListener {
                 if (isAdActive) {
@@ -75,10 +89,11 @@ class VehiclesAdapter(private val itemClickListener: OnItemClickListener) : Recy
                 itemClickListener.onItemClick(vehicle)
             }
         }
-    
-    
-    
-    private fun updateButtonState(isAdActive: Boolean) {
+        
+        
+        
+        
+        private fun updateButtonState(isAdActive: Boolean) {
             binding.btnAd.apply {
                 if (isAdActive) {
                     text = "Anunciado"

@@ -1,146 +1,161 @@
-<com.google.android.material.card.MaterialCardView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="8dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp">
 
-        <ImageView
-            android:id="@+id/vehicleImages"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/img_vehicle" />
-
-        <TextView
-            android:id="@+id/vehicleModel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Modelo do Veículo"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            android:layout_marginBottom="4dp"
-            app:layout_constraintTop_toBottomOf="@id/vehicleImages"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/vehiclePrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Preço: R$"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            android:layout_marginBottom="4dp"
-            app:layout_constraintTop_toBottomOf="@id/vehicleModel"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/vehicleLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Localização: "
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            app:layout_constraintTop_toBottomOf="@id/vehiclePrice"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Anunciante: "
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            app:layout_constraintTop_toBottomOf="@id/vehicleLocation"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/tvViewMore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ver mais"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            app:layout_constraintTop_toBottomOf="@id/userName"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/additionalInfoLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:paddingTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/tvViewMore"
-            app:layout_constraintStart_toStartOf="parent">
+            android:layout_height="wrap_content">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerImages"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/vehicleYear"
+                android:id="@+id/vehicleModel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ano: "
-                android:textAppearance="?attr/textAppearanceSubtitle2" />
+                android:text="Modelo do Veículo"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewPagerImages"
+                android:layout_marginTop="8dp" />
 
             <TextView
-                android:id="@+id/vehicleFuelType"
+                android:id="@+id/vehiclePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Combustível:"
-                android:textAppearance="?attr/textAppearanceSubtitle2" />
+                android:text="Preço: R$"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vehicleModel"
+                android:layout_marginTop="4dp" />
 
             <TextView
-                android:id="@+id/vehicleCondition"
+                android:id="@+id/vehicleLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Condição: "
-                android:textAppearance="?attr/textAppearanceSubtitle2" />
+                android:text="Localização: "
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vehiclePrice"
+                android:layout_marginTop="4dp" />
 
             <TextView
-                android:id="@+id/vehicleKm"
+                android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="KM:"
-                android:textAppearance="?attr/textAppearanceSubtitle2" />
+                android:text="Anunciante: "
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vehicleLocation"
+                android:layout_marginTop="4dp" />
 
             <TextView
-                android:id="@+id/vehicleDescription"
+                android:id="@+id/tvViewMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Descrição:"
-                android:layout_marginTop="8dp"
-                android:textAppearance="?attr/textAppearanceSubtitle2" />
-        </LinearLayout>
+                android:text="Ver mais"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userName"
+                android:layout_marginTop="4dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="8dp"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/additionalInfoLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
+                android:id="@+id/additionalInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:paddingTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvViewMore">
 
-            <ImageButton
-                android:id="@+id/heartIcon"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@null"
-                android:contentDescription="Salvar veículo como favorito"
-                android:src="@drawable/like" />
+                <TextView
+                    android:id="@+id/vehicleYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ano: "
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
 
-            <ImageButton
-                android:id="@+id/btnStartConversation"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@null"
-                android:src="@drawable/chat"
-                android:text="Conversar"
-                android:clickable="true"
-                android:enabled="true" />
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:id="@+id/vehicleFuelType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Combustível:"
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+                <TextView
+                    android:id="@+id/vehicleCondition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Condição: "
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+                <TextView
+                    android:id="@+id/vehicleKm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KM:"
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+                <TextView
+                    android:id="@+id/vehicleDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Descrição:"
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="8dp"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/additionalInfoLayout"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageButton
+                    android:id="@+id/heartIcon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:contentDescription="Salvar veículo como favorito"
+                    android:src="@drawable/like" />
+
+                <ImageButton
+                    android:id="@+id/btnStartConversation"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:contentDescription="Iniciar conversa"
+                    android:src="@drawable/chat" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

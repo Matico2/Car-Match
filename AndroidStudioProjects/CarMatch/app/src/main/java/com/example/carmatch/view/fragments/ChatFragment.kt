@@ -27,30 +27,34 @@ class ChatFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentChatBinding.inflate(inflater, container, false)
         chatAdapter = ChatAdapter { user ->
-            val chat = Chat(
-                idChat = "${FirebaseAuth.getInstance().currentUser?.uid}-${user.idUser}",
-                idUser1 = FirebaseAuth.getInstance().currentUser?.uid ?: "",
-                idUser2 = user.idUser,
-            )
-            
-            val intent = Intent(context, MessageActivity::class.java).apply {
-                putExtra("dadosDestinatarios", user)
-                putExtra("userName", user.name)
-                putExtra("idChat", chat.idChat)
-                putExtra("origem", Constants.ORIGEM_CONTATO)
-            }
-            FirebaseFirestore.getInstance()
-                .collection("Chat")
-                .document(chat.idChat)
-                .set(chat)
-                .addOnSuccessListener {
-                 
-                    startActivity(intent)
+            val chatId = "${firebaseAuth.currentUser?.uid}-${user.idUser}"
+            firestore.collection("vehicle").document(chatId)
+                .get()
+                .addOnSuccessListener { document ->
+                    val vehicle = document.toObject(Vehicle::class.java)
+                    val vehicleModel = vehicle?.model
+                    
+                    val intent = Intent(context, MessageActivity::class.java).apply {
+                        putExtra("dadosDestinatarios", user)
+                        putExtra("idChat", chatId)
+                        putExtra("vehicleModel", vehicleModel)
+                    }
+                    
+                    
+                    firestore.collection("Chat").document(chatId)
+                        .set(Chat(chatId, firebaseAuth.currentUser?.uid ?: "", user.idUser))
+                        .addOnSuccessListener {
+                            startActivity(intent)
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.e("Firestore", "Erro ao criar o chat: ${exception.message}")
+                        }
                 }
                 .addOnFailureListener { exception ->
-                    Log.e("Firestore", "Erro ao criar o chat: ${exception.message}")
+                    Log.e("Firestore", "Erro ao buscar veículo: ${exception.message}")
                 }
         }
+        
         
         binding.RecyclerViewList.apply {
             adapter = chatAdapter
@@ -104,20 +108,26 @@ class ChatFragment : Fragment() {
             .addOnSuccessListener { userDoc ->
                 val userName = userDoc.getString("name") ?: "Usuário"
                 
-                firestore.collection("vehicle").document(chat.idVehicle)
-                    .get()
-                    .addOnSuccessListener { vehicleDoc ->
-                        val vehicle = vehicleDoc.toObject(Vehicle::class.java)
-                        addToChatList(chat, vehicle, userName, chatList, totalChats)
-                    }
-                    .addOnFailureListener {
-                        addToChatList(chat, null, userName, chatList, totalChats)
-                    }
+                if (!chat.idVehicle.isNullOrEmpty()) {
+                    firestore.collection("vehicle").document(chat.idVehicle!!)
+                        .get()
+                        .addOnSuccessListener { vehicleDoc ->
+                            val vehicle = vehicleDoc.toObject(Vehicle::class.java)
+                            addToChatList(chat, vehicle, userName, chatList, totalChats)
+                        }
+                        .addOnFailureListener {
+                            addToChatList(chat, null, userName, chatList, totalChats)
+                        }
+                } else {
+                    addToChatList(chat, null, userName, chatList, totalChats)
+                }
             }
             .addOnFailureListener { exception ->
                 Log.e("ChatFragment", "Erro ao carregar usuário: ${exception.message}")
             }
     }
+    
+    
     
     private fun addToChatList(
         chat: Chat,

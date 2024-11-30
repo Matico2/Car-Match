@@ -28,7 +28,7 @@ class ChatAdapter(
             binding.textVehicleModel.text = vehicle?.model ?: "Veículo não encontrado"
             
             vehicle?.let {
-                val imageRef = storage.reference.child("photos/vehicles/${vehicle.vehicleId}/photo_0.jpg")
+                val imageRef = storage.reference.child("photos/vehicles/${vehicle.userUID}/${vehicle.vehicleId}/photo_0.jpg")
                 imageRef.downloadUrl
                     .addOnSuccessListener { uri ->
                         Picasso.get()
@@ -42,9 +42,11 @@ class ChatAdapter(
                         binding.imageContatoFoto.setImageResource(R.drawable.vehicle_icon)
                     }
             } ?: run {
+             
                 binding.imageContatoFoto.setImageResource(R.drawable.vehicle_icon)
             }
             
+          
             binding.root.setOnClickListener {
                 val otherUserId = chat.participants.firstOrNull { it != chat.idUser1 } ?: return@setOnClickListener
                 val user = User(
@@ -54,6 +56,7 @@ class ChatAdapter(
                 onChatClick(user)
             }
         }
+        
     }
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {

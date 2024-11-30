@@ -5,13 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import androidx.viewpager2.widget.ViewPager2;
 import com.example.carmatch1.R;
 import com.google.android.material.card.MaterialCardView;
 import java.lang.NullPointerException;
@@ -20,13 +21,16 @@ import java.lang.String;
 
 public final class ItemVehicleImageBinding implements ViewBinding {
   @NonNull
-  private final MaterialCardView rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
   public final LinearLayout additionalInfoLayout;
 
   @NonNull
   public final ImageButton btnStartConversation;
+
+  @NonNull
+  public final MaterialCardView cardView;
 
   @NonNull
   public final ImageButton heartIcon;
@@ -47,9 +51,6 @@ public final class ItemVehicleImageBinding implements ViewBinding {
   public final TextView vehicleFuelType;
 
   @NonNull
-  public final ImageView vehicleImages;
-
-  @NonNull
   public final TextView vehicleKm;
 
   @NonNull
@@ -64,34 +65,38 @@ public final class ItemVehicleImageBinding implements ViewBinding {
   @NonNull
   public final TextView vehicleYear;
 
-  private ItemVehicleImageBinding(@NonNull MaterialCardView rootView,
+  @NonNull
+  public final ViewPager2 viewPagerImages;
+
+  private ItemVehicleImageBinding(@NonNull ConstraintLayout rootView,
       @NonNull LinearLayout additionalInfoLayout, @NonNull ImageButton btnStartConversation,
-      @NonNull ImageButton heartIcon, @NonNull TextView tvViewMore, @NonNull TextView userName,
-      @NonNull TextView vehicleCondition, @NonNull TextView vehicleDescription,
-      @NonNull TextView vehicleFuelType, @NonNull ImageView vehicleImages,
+      @NonNull MaterialCardView cardView, @NonNull ImageButton heartIcon,
+      @NonNull TextView tvViewMore, @NonNull TextView userName, @NonNull TextView vehicleCondition,
+      @NonNull TextView vehicleDescription, @NonNull TextView vehicleFuelType,
       @NonNull TextView vehicleKm, @NonNull TextView vehicleLocation,
-      @NonNull TextView vehicleModel, @NonNull TextView vehiclePrice,
-      @NonNull TextView vehicleYear) {
+      @NonNull TextView vehicleModel, @NonNull TextView vehiclePrice, @NonNull TextView vehicleYear,
+      @NonNull ViewPager2 viewPagerImages) {
     this.rootView = rootView;
     this.additionalInfoLayout = additionalInfoLayout;
     this.btnStartConversation = btnStartConversation;
+    this.cardView = cardView;
     this.heartIcon = heartIcon;
     this.tvViewMore = tvViewMore;
     this.userName = userName;
     this.vehicleCondition = vehicleCondition;
     this.vehicleDescription = vehicleDescription;
     this.vehicleFuelType = vehicleFuelType;
-    this.vehicleImages = vehicleImages;
     this.vehicleKm = vehicleKm;
     this.vehicleLocation = vehicleLocation;
     this.vehicleModel = vehicleModel;
     this.vehiclePrice = vehiclePrice;
     this.vehicleYear = vehicleYear;
+    this.viewPagerImages = viewPagerImages;
   }
 
   @Override
   @NonNull
-  public MaterialCardView getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -125,6 +130,12 @@ public final class ItemVehicleImageBinding implements ViewBinding {
       id = R.id.btnStartConversation;
       ImageButton btnStartConversation = ViewBindings.findChildViewById(rootView, id);
       if (btnStartConversation == null) {
+        break missingId;
+      }
+
+      id = R.id.cardView;
+      MaterialCardView cardView = ViewBindings.findChildViewById(rootView, id);
+      if (cardView == null) {
         break missingId;
       }
 
@@ -164,12 +175,6 @@ public final class ItemVehicleImageBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.vehicleImages;
-      ImageView vehicleImages = ViewBindings.findChildViewById(rootView, id);
-      if (vehicleImages == null) {
-        break missingId;
-      }
-
       id = R.id.vehicleKm;
       TextView vehicleKm = ViewBindings.findChildViewById(rootView, id);
       if (vehicleKm == null) {
@@ -200,10 +205,16 @@ public final class ItemVehicleImageBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemVehicleImageBinding((MaterialCardView) rootView, additionalInfoLayout,
-          btnStartConversation, heartIcon, tvViewMore, userName, vehicleCondition,
-          vehicleDescription, vehicleFuelType, vehicleImages, vehicleKm, vehicleLocation,
-          vehicleModel, vehiclePrice, vehicleYear);
+      id = R.id.viewPagerImages;
+      ViewPager2 viewPagerImages = ViewBindings.findChildViewById(rootView, id);
+      if (viewPagerImages == null) {
+        break missingId;
+      }
+
+      return new ItemVehicleImageBinding((ConstraintLayout) rootView, additionalInfoLayout,
+          btnStartConversation, cardView, heartIcon, tvViewMore, userName, vehicleCondition,
+          vehicleDescription, vehicleFuelType, vehicleKm, vehicleLocation, vehicleModel,
+          vehiclePrice, vehicleYear, viewPagerImages);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

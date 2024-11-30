@@ -21,29 +21,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageView
-        android:id="@+id/imagePhoto"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="Foto de perfil"
-        app:layout_constraintStart_toStartOf="@+id/tb"
-        app:layout_constraintTop_toTopOf="@+id/tb"
-        app:srcCompat="@drawable/profile_icon" />
-
-
     <TextView
         android:id="@+id/txtUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Nome"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        app:layout_constraintStart_toEndOf="@id/imagePhoto"
-        app:layout_constraintTop_toTopOf="@id/imagePhoto"
-        app:layout_constraintBottom_toBottomOf="@id/imagePhoto" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="32dp"
+        android:text="Nome do Usuário"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/tb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tb" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -60,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb"
         app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_mensagem_send" />
+         />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputLayoutMessage"

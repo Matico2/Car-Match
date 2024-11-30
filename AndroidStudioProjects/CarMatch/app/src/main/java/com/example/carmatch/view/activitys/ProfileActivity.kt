@@ -53,28 +53,36 @@ class ProfileActivity : AppCompatActivity() {
     }
     private fun recoverData() {
         val idUser = firebaseAuth.currentUser?.uid
-        if(idUser != null) {
+        if (idUser != null) {
+            val profileImageRef = storage.reference.child("photos/users/$idUser/perfil.jpg")
+            profileImageRef.downloadUrl.addOnSuccessListener { uri ->
+                Picasso.get()
+                    .load(uri)
+                    .placeholder(R.drawable.profile_icon)
+                    .into(binding.imgProfilePhoto)
+            }.addOnFailureListener {
+                showMenssage("Erro ao carregar a foto de perfil: ${it.message}")
+            }
+            
             firestore.collection("users")
                 .document(idUser)
                 .get()
-                .addOnSuccessListener {documentSnapShot ->
-                    val dateUser = documentSnapShot.data
-                    if(dateUser != null){
-                        val name = dateUser["name"] as String
-                        val photoUser = dateUser ["photoUser"] as String
-                        val email = dateUser["email"] as String
-                        binding.txtUsername.setText(name)
-                        binding.txtEmail.setText(email)
-                        if (photoUser.isNotEmpty()){
-                            Picasso.get()
-                                .load(photoUser)
-                                .into(binding.imgProfilePhoto)
-                        }
+                .addOnSuccessListener { documentSnapshot ->
+                    val dataUser = documentSnapshot.data
+                    if (dataUser != null) {
+                        val name = dataUser["name"] as? String ?: "Usuário"
+                        val email = dataUser["email"] as? String ?: "Email não informado"
+                        
+                        binding.txtUsername.text = name
+                        binding.txtEmail.text = email
                     }
-                    
+                }
+                .addOnFailureListener {
+                    showMenssage("Erro ao carregar dados do usuário: ${it.message}")
                 }
         }
     }
+    
     
     private fun uploadImageStorage(uri: Uri) {
         val idUser = firebaseAuth.currentUser?.uid

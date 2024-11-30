@@ -4,9 +4,9 @@ package com.example.carmatch1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
@@ -21,15 +21,15 @@ public final class FragmentFavVehicleBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final RecyclerView RecyclerViewList;
+  public final RecyclerView recyclerViewListFav;
 
   @NonNull
   public final SearchView searchView;
 
   private FragmentFavVehicleBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView RecyclerViewList, @NonNull SearchView searchView) {
+      @NonNull RecyclerView recyclerViewListFav, @NonNull SearchView searchView) {
     this.rootView = rootView;
-    this.RecyclerViewList = RecyclerViewList;
+    this.recyclerViewListFav = recyclerViewListFav;
     this.searchView = searchView;
   }
 
@@ -60,9 +60,9 @@ public final class FragmentFavVehicleBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.RecyclerViewList;
-      RecyclerView RecyclerViewList = ViewBindings.findChildViewById(rootView, id);
-      if (RecyclerViewList == null) {
+      id = R.id.recyclerViewListFav;
+      RecyclerView recyclerViewListFav = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerViewListFav == null) {
         break missingId;
       }
 
@@ -72,7 +72,7 @@ public final class FragmentFavVehicleBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentFavVehicleBinding((ConstraintLayout) rootView, RecyclerViewList,
+      return new FragmentFavVehicleBinding((ConstraintLayout) rootView, recyclerViewListFav,
           searchView);
     }
     String missingId = rootView.getResources().getResourceName(id);

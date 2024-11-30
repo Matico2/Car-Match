@@ -1,8 +1,8 @@
 package com.example.carmatch.view.activitys
 
+import FavVehicleFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.carmatch.view.fragments.FavVehicleFragment
 import com.example.carmatch1.R
 import com.example.carmatch1.databinding.ActivityFavVehicleBinding
 

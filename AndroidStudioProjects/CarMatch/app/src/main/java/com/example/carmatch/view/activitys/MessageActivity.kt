@@ -18,7 +18,7 @@ import com.google.firebase.firestore.Query
 class MessageActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMessageBinding.inflate(layoutInflater) }
     private var dataDest: User? = null
-    private var idChat: String? = null // Agora é opcional
+    private var idChat: String? = null
     private val firestore by lazy { FirebaseFirestore.getInstance() }
     private val firebaseAuth by lazy { FirebaseAuth.getInstance() }
     private var listenerRegistrations = mutableListOf<ListenerRegistration>()
@@ -47,23 +47,21 @@ class MessageActivity : AppCompatActivity() {
         intent.extras?.let { extras ->
             idChat = extras.getString("idChat")
             dataDest = extras.getParcelable("dadosDestinatarios")
-            Log.d("RecoverData", "Intent Extras: $extras")
-            Log.d("RecoverData", "idChat: $idChat, dataDest: $dataDest")
             
             if (idChat.isNullOrBlank()) {
-                Log.e("RecoverData", "idChat não foi fornecido ou está inválido.")
                 showMenssage("Erro ao abrir o chat. ID do chat inválido.")
                 finish()
                 return
             }
-            Log.d("RecoverData", "idChat recuperado: $idChat")
+            
+            val userName = dataDest?.name ?: "Nome não encontrado"
+            val vehicleModel = extras.getString("vehicleModel")
+            binding.txtUserName.text = "$userName"
         } ?: run {
-            Log.e("RecoverData", "Extras estão nulos.")
             showMenssage("Erro ao abrir o chat. Dados insuficientes.")
             finish()
         }
     }
-    
     
     private fun initRecycleView() {
         binding.recyclerViewChat.apply {
@@ -71,18 +69,13 @@ class MessageActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MessageActivity)
         }
     }
-    
     private fun initListeners() {
         if (idChat.isNullOrBlank()) {
             Log.e("Firestore Error", "idChat está vazio. Não é possível configurar o listener.")
             return
         }
-        
         val chatMessagesRef = firestore.collection(Constants.BD_MENSANS)
             .document(idChat!!).collection("mensagens")
-        
-        Log.d("Firestore", "Listener configurado para idChat: $idChat")
-        
         val messagesListener = chatMessagesRef
             .orderBy("timestamp", Query.Direction.ASCENDING)
             .addSnapshotListener { snapshot, error ->
@@ -90,21 +83,39 @@ class MessageActivity : AppCompatActivity() {
                     Log.e("Listener Error", "Erro ao recuperar mensagens: ${error.message}")
                     return@addSnapshotListener
                 }
-                val messages = snapshot?.documents?.mapNotNull {
-                    it.toObject(Menssage::class.java)?.apply { id = it.id }
-                } ?: emptyList()
+                
+                if (snapshot == null || snapshot.isEmpty) {
+                    Log.d("Firestore", "Nenhuma mensagem encontrada para o chat ID: $idChat")
+                    updateMessages(emptyList())
+                    return@addSnapshotListener
+                }
+                
+                val messages = snapshot.documents.mapNotNull { document ->
+                    val mensagem = document.toObject(Menssage::class.java)
+                    mensagem?.apply { id = document.id }
+                }
+                
+                Log.d("Firestore", "Mensagens carregadas: ${messages.size}")
                 updateMessages(messages)
             }
+        
         listenerRegistrations.add(messagesListener)
     }
     
-    
     private fun updateMessages(newMessages: List<Menssage>) {
+        Log.d("MessageActivity", "Atualizando RecyclerView com ${newMessages.size} mensagens.")
+        newMessages.forEach { mensagem ->
+            Log.d(
+                "MessageActivity",
+                "Mensagem: Text=${mensagem.text}, SenderId=${mensagem.senderId}, ReceiverId=${mensagem.receiverId}"
+            )
+        }
         mensagemAdapter.addList(newMessages)
         if (newMessages.isNotEmpty()) {
             binding.recyclerViewChat.smoothScrollToPosition(newMessages.size - 1)
         }
     }
+    
     
     private fun eventClick() {
         binding.btnSend.setOnClickListener {
@@ -118,33 +129,39 @@ class MessageActivity : AppCompatActivity() {
             showMenssage("Digite uma mensagem antes de enviar.")
             return
         }
-        val idUserSend = firebaseAuth.currentUser?.uid ?: return
-        val menssage = Menssage(
-            senderId = idUserSend,
-            receiverId = dataDest?.idUser.orEmpty(),
+        
+        val currentUserId = firebaseAuth.currentUser?.uid ?: return
+        val receiverId = dataDest?.idUser.orEmpty()
+        
+        if (receiverId.isBlank()) {
+            Log.e("MessageActivity", "ReceiverId está vazio.")
+            showMenssage("Erro ao identificar o destinatário.")
+            return
+        }
+        
+        val mensagem = Menssage(
+            senderId = currentUserId,
+            receiverId = receiverId,
             text = textMessage,
-            idChat = idChat.orEmpty()
+            idChat = idChat.orEmpty(),
+            timestamp = null // Será preenchido automaticamente no Firestore
         )
-        saveMenssageFireStore(menssage, {
-            binding.txtMenssage.setText("")
-        }, {
-            showMenssage("Erro ao enviar mensagem: ${it.message}")
-        })
+        
+        Log.d("MessageActivity", "Enviando mensagem: $mensagem")
+        
+        firestore.collection(Constants.BD_MENSANS)
+            .document(idChat!!).collection("mensagens")
+            .add(mensagem)
+            .addOnSuccessListener {
+                binding.txtMenssage.setText("")
+                Log.d("MessageActivity", "Mensagem enviada com sucesso.")
+            }
+            .addOnFailureListener {
+                showMenssage("Erro ao enviar mensagem: ${it.message}")
+                Log.e("MessageActivity", "Erro ao enviar mensagem", it)
+            }
     }
     
-    private fun saveMenssageFireStore(
-        menssage: Menssage,
-        onSuccess: () -> Unit,
-        onFailure: (Exception) -> Unit
-    ) {
-        val documentRef = firestore.collection(Constants.BD_MENSANS)
-            .document(idChat!!).collection("mensagens").document()
-        menssage.id = documentRef.id
-        
-        documentRef.set(menssage)
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { onFailure(it) }
-    }
     
     private fun deleteMessage(
         idMessage: String,
@@ -162,9 +179,8 @@ class MessageActivity : AppCompatActivity() {
         val toolbar = binding.tb
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
-            title = ""
             setDisplayHomeAsUpEnabled(true)
-            binding.txtUserName.text = dataDest?.name
+            setDisplayShowTitleEnabled(false)
         }
     }
     

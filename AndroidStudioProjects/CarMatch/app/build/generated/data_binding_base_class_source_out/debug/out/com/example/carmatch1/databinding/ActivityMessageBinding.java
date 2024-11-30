@@ -4,7 +4,6 @@ package com.example.carmatch1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,9 +28,6 @@ public final class ActivityMessageBinding implements ViewBinding {
   public final FloatingActionButton btnSend;
 
   @NonNull
-  public final ImageView imagePhoto;
-
-  @NonNull
   public final TextInputLayout inputLayoutMessage;
 
   @NonNull
@@ -47,13 +43,11 @@ public final class ActivityMessageBinding implements ViewBinding {
   public final TextView txtUserName;
 
   private ActivityMessageBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FloatingActionButton btnSend, @NonNull ImageView imagePhoto,
-      @NonNull TextInputLayout inputLayoutMessage, @NonNull RecyclerView recyclerViewChat,
-      @NonNull MaterialToolbar tb, @NonNull TextInputEditText txtMenssage,
-      @NonNull TextView txtUserName) {
+      @NonNull FloatingActionButton btnSend, @NonNull TextInputLayout inputLayoutMessage,
+      @NonNull RecyclerView recyclerViewChat, @NonNull MaterialToolbar tb,
+      @NonNull TextInputEditText txtMenssage, @NonNull TextView txtUserName) {
     this.rootView = rootView;
     this.btnSend = btnSend;
-    this.imagePhoto = imagePhoto;
     this.inputLayoutMessage = inputLayoutMessage;
     this.recyclerViewChat = recyclerViewChat;
     this.tb = tb;
@@ -94,12 +88,6 @@ public final class ActivityMessageBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.imagePhoto;
-      ImageView imagePhoto = ViewBindings.findChildViewById(rootView, id);
-      if (imagePhoto == null) {
-        break missingId;
-      }
-
       id = R.id.inputLayoutMessage;
       TextInputLayout inputLayoutMessage = ViewBindings.findChildViewById(rootView, id);
       if (inputLayoutMessage == null) {
@@ -130,8 +118,8 @@ public final class ActivityMessageBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMessageBinding((ConstraintLayout) rootView, btnSend, imagePhoto,
-          inputLayoutMessage, recyclerViewChat, tb, txtMenssage, txtUserName);
+      return new ActivityMessageBinding((ConstraintLayout) rootView, btnSend, inputLayoutMessage,
+          recyclerViewChat, tb, txtMenssage, txtUserName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

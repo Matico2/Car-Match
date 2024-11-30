@@ -4,10 +4,10 @@ package com.example.carmatch1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carmatch1.R;
@@ -20,13 +20,13 @@ public final class ActivityFavVehicleBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final RecyclerView fragmentContainerFav;
+  public final FrameLayout fragmentContainerFav;
 
   @NonNull
   public final ToolbarAppBinding includeMainToolbar;
 
   private ActivityFavVehicleBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView fragmentContainerFav, @NonNull ToolbarAppBinding includeMainToolbar) {
+      @NonNull FrameLayout fragmentContainerFav, @NonNull ToolbarAppBinding includeMainToolbar) {
     this.rootView = rootView;
     this.fragmentContainerFav = fragmentContainerFav;
     this.includeMainToolbar = includeMainToolbar;
@@ -60,7 +60,7 @@ public final class ActivityFavVehicleBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.fragment_container_fav;
-      RecyclerView fragmentContainerFav = ViewBindings.findChildViewById(rootView, id);
+      FrameLayout fragmentContainerFav = ViewBindings.findChildViewById(rootView, id);
       if (fragmentContainerFav == null) {
         break missingId;
       }
