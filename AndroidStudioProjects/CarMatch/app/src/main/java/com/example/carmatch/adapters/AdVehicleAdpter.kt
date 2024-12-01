@@ -75,8 +75,7 @@ class AdVehiclesAdapter(
             }
             
             val firestore = FirebaseFirestore.getInstance()
-            
-            // Verificar se o veículo já é favoritado
+           
             firestore.collection("favVehicle")
                 .whereEqualTo("idVehicle", adVehicle.idVehicle)
                 .whereEqualTo("idAd", adVehicle.idAd)

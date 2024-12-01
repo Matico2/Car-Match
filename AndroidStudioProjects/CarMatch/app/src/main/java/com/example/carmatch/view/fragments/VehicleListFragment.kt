@@ -25,26 +25,50 @@ class VehicleListFragment : Fragment(), VehiclesAdapter.OnItemClickListener {
     private lateinit var binding: FragmentVehicleListBinding
     private lateinit var eventSnapShot: ListenerRegistration
     private lateinit var vehiclesAdapter: VehiclesAdapter
-
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentVehicleListBinding.inflate(inflater, container, false)
         vehiclesAdapter = VehiclesAdapter(this)
+        
         binding.RecyclerViewList.adapter = vehiclesAdapter
         binding.RecyclerViewList.layoutManager = LinearLayoutManager(context)
         binding.RecyclerViewList.addItemDecoration(
-            DividerItemDecoration(
-                context, LinearLayoutManager.VERTICAL
-            )
+            DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
         )
+        
+        // Adicionando o listener na SearchView
+        binding.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { filterVehicles(it) }
+                return true
+            }
+            
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { filterVehicles(it) }
+                return true
+            }
+        })
+        
         return binding.root
     }
+    
     interface OnItemClickListener {
         fun onItemClick(vehicle: Vehicle)
         fun onAdvertiseClick(vehicle: Vehicle) }
     
+    private var originalVehicleList = listOf<Vehicle>()
+    
+    private fun filterVehicles(query: String) {
+        val filteredList = originalVehicleList.filter { vehicle ->
+            val brandMatches = vehicle.brand.contains(query, ignoreCase = true)
+            val priceMatches = vehicle.price.toString().contains(query, ignoreCase = true)
+            brandMatches || priceMatches
+        }
+        vehiclesAdapter.addList(filteredList)
+    }
     
     private fun adVehicle(vehicle: Vehicle) {
         val idUser = firebaseAuth.currentUser?.uid ?: run {
@@ -91,10 +115,12 @@ class VehicleListFragment : Fragment(), VehiclesAdapter.OnItemClickListener {
                     }
                 }
                 if (list.isNotEmpty()) {
+                    originalVehicleList = list // Atualiza a lista original
                     vehiclesAdapter.addList(list)
                 }
             }
     }
+    
     
     override fun onDestroy() {
         super.onDestroy()

@@ -1,10 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="2dp">
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <ImageView
         android:id="@+id/imgPhoto"
         android:layout_width="61dp"
         android:layout_height="61dp"
@@ -12,7 +15,8 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/txtModel"
@@ -22,7 +26,7 @@
         android:text="Modelo"
         android:gravity="start"
         app:layout_constraintBottom_toTopOf="@+id/txtBrand"
-        app:layout_constraintEnd_toStartOf="@+id/heartIcon"
+        app:layout_constraintEnd_toStartOf="@+id/btnStartConversation"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/imgPhoto"
         app:layout_constraintTop_toTopOf="@+id/imgPhoto" />
@@ -35,7 +39,7 @@
         android:text="Marca"
         android:gravity="start"
         app:layout_constraintBottom_toTopOf="@+id/txtPrice"
-        app:layout_constraintEnd_toStartOf="@+id/heartIcon"
+        app:layout_constraintEnd_toStartOf="@+id/btnStartConversation"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/imgPhoto"
         app:layout_constraintTop_toBottomOf="@+id/txtModel" />
@@ -48,33 +52,22 @@
         android:text="Preço"
         android:gravity="start"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/heartIcon"
+        app:layout_constraintEnd_toStartOf="@+id/btnStartConversation"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/imgPhoto"
         app:layout_constraintTop_toBottomOf="@+id/txtBrand" />
 
     <ImageButton
-        android:id="@+id/heartIcon"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:contentDescription="Salvar veículo como favorito"
-        android:src="@drawable/like"
-        app:layout_constraintBottom_toTopOf="@+id/btnStartConversation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <ImageButton
         android:id="@+id/btnStartConversation"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
         android:backgroundTint="?attr/colorPrimary"
         android:src="@drawable/chat"
-        android:text="Conversar"
-        android:textColor="@android:color/white"
+        android:contentDescription="Iniciar conversa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heartIcon" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

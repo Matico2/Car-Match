@@ -33,6 +33,7 @@ drawable send_icon
 drawable shere_icon
 drawable vehicle_icon
 id RecyclerViewList
+id RecyclerViewListFav
 id action_logout
 id action_share_profile
 id additionalInfoLayout
@@ -101,7 +102,6 @@ id materialIcon
 id nav_graph
 id photoContainer
 id recyclerViewChat
-id recyclerViewListFav
 id searchView
 id tb
 id textInputCPF

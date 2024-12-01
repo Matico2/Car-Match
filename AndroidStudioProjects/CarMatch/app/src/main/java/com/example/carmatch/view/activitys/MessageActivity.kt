@@ -102,6 +102,7 @@ class MessageActivity : AppCompatActivity() {
         listenerRegistrations.add(messagesListener)
     }
     
+    
     private fun updateMessages(newMessages: List<Menssage>) {
         Log.d("MessageActivity", "Atualizando RecyclerView com ${newMessages.size} mensagens.")
         newMessages.forEach { mensagem ->
@@ -115,6 +116,7 @@ class MessageActivity : AppCompatActivity() {
             binding.recyclerViewChat.smoothScrollToPosition(newMessages.size - 1)
         }
     }
+    
     
     
     private fun eventClick() {

@@ -22,6 +22,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         includeToolbarApp()
         showAdVehicleFragment()
+        
+        intent.getStringExtra("selectedVehicleId")?.let { vehicleId ->
+            passDataToAdFragment(vehicleId)
+        }
+    }
+    
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        intent?.getStringExtra("selectedVehicleId")?.let { vehicleId ->
+            passDataToAdFragment(vehicleId)
+        }
     }
     
     private fun includeToolbarApp() {
@@ -63,5 +74,9 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_container, AdVehiclesFragment())
             .commitAllowingStateLoss()
     }
+    
+    private fun passDataToAdFragment(vehicleId: String) {
+        val adFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as? AdVehiclesFragment
+        adFragment?.showSelectedVehicle(vehicleId)
+    }
 }
-

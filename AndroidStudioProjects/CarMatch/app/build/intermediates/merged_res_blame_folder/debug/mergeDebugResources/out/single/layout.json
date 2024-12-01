@@ -1,15 +1,11 @@
 [
     {
-        "merged": "com.example.carmatch1.app-mergeDebugResources-65:/layout/item_mensafens_dest.xml",
-        "source": "com.example.carmatch1.app-main-68:/layout/item_mensafens_dest.xml"
+        "merged": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-mergeDebugResources-65:\\layout\\item_mensafens_dest.xml",
+        "source": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-main-68:\\layout\\item_mensafens_dest.xml"
     },
     {
         "merged": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-mergeDebugResources-65:\\layout\\activity_details_vehicle.xml",
         "source": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-main-68:\\layout\\activity_details_vehicle.xml"
-    },
-    {
-        "merged": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-mergeDebugResources-65:\\layout\\item_mensafens_dest.xml",
-        "source": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-main-68:\\layout\\item_mensafens_dest.xml"
     },
     {
         "merged": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-mergeDebugResources-65:\\layout\\activity_vehicle.xml",
@@ -80,6 +76,10 @@
         "source": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-main-68:\\layout\\fragment_edit_profile.xml"
     },
     {
+        "merged": "com.example.carmatch1.app-mergeDebugResources-65:/layout/fragment_fav_vehicle.xml",
+        "source": "com.example.carmatch1.app-main-68:/layout/fragment_fav_vehicle.xml"
+    },
+    {
         "merged": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-mergeDebugResources-65:\\layout\\fragment_change_password.xml",
         "source": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-main-68:\\layout\\fragment_change_password.xml"
     },
@@ -92,16 +92,12 @@
         "source": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-main-68:\\layout\\item_vehicle_fav.xml"
     },
     {
-        "merged": "com.example.carmatch1.app-mergeDebugResources-65:/layout/item_mensagem_send.xml",
-        "source": "com.example.carmatch1.app-main-68:/layout/item_mensagem_send.xml"
+        "merged": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-mergeDebugResources-65:\\layout\\fragment_vehicle_list.xml",
+        "source": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-main-68:\\layout\\fragment_vehicle_list.xml"
     },
     {
         "merged": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-mergeDebugResources-65:\\layout\\activity_login.xml",
         "source": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-main-68:\\layout\\activity_login.xml"
-    },
-    {
-        "merged": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-mergeDebugResources-65:\\layout\\fragment_vehicle_list.xml",
-        "source": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-main-68:\\layout\\fragment_vehicle_list.xml"
     },
     {
         "merged": "C:\\Users\\mathe\\.gradle\\daemon\\8.7\\com.example.carmatch1.app-mergeDebugResources-65:\\layout\\fragment_fav_vehicle.xml",

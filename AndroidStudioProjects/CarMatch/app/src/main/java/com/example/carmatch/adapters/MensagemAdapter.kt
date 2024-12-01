@@ -1,6 +1,5 @@
 package com.example.carmatch.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -60,6 +59,7 @@ class MensagemAdapter(
             Constants.TYPE_DEST
         }
     }
+    
     
     
     class MensagensSendViewHolder(

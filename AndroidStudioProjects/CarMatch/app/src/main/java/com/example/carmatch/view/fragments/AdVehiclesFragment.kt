@@ -27,7 +27,7 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
     private val listUser = ArrayList<User>()
     private val listVehicle = ArrayList<Vehicle>()
     private val listAd = ArrayList<AdVehicle>()
-    private val filteredListAd = ArrayList<AdVehicle>() // Lista filtrada
+    private val filteredListAd = ArrayList<AdVehicle>()
     
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +38,6 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
         binding.RecyclerViewList.adapter = adVehiclesAdapter
         binding.RecyclerViewList.layoutManager = LinearLayoutManager(requireContext())
         
-        // Configuração do SearchView
         binding.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -101,6 +100,17 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
                 }
             }
     }
+    fun showSelectedVehicle(vehicleId: String) {
+        val selectedAd = listAd.find { ad -> ad.idVehicle == vehicleId }
+        if (selectedAd != null) {
+            filteredListAd.clear()
+            filteredListAd.add(selectedAd)
+            adVehiclesAdapter.notifyDataSetChanged()
+        } else {
+            Log.e("AdVehiclesFragment", "Veículo com ID $vehicleId não encontrado.")
+        }
+    }
+    
     
     private fun filterList(query: String) {
         filteredListAd.clear()

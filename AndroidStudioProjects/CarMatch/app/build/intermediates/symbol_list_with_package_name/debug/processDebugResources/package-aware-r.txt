@@ -3262,6 +3262,7 @@ id FUNCTION
 id META
 id NO_DEBUG
 id RecyclerViewList
+id RecyclerViewListFav
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
@@ -3701,7 +3702,6 @@ id radio
 id ratio
 id rectangles
 id recyclerViewChat
-id recyclerViewListFav
 id report_drawn
 id reverseSawtooth
 id right

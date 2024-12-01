@@ -4,7 +4,6 @@ package com.example.carmatch1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -21,16 +20,12 @@ public final class FragmentFavVehicleBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final RecyclerView recyclerViewListFav;
-
-  @NonNull
-  public final SearchView searchView;
+  public final RecyclerView RecyclerViewListFav;
 
   private FragmentFavVehicleBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView recyclerViewListFav, @NonNull SearchView searchView) {
+      @NonNull RecyclerView RecyclerViewListFav) {
     this.rootView = rootView;
-    this.recyclerViewListFav = recyclerViewListFav;
-    this.searchView = searchView;
+    this.RecyclerViewListFav = RecyclerViewListFav;
   }
 
   @Override
@@ -60,20 +55,13 @@ public final class FragmentFavVehicleBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.recyclerViewListFav;
-      RecyclerView recyclerViewListFav = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerViewListFav == null) {
+      id = R.id.RecyclerViewListFav;
+      RecyclerView RecyclerViewListFav = ViewBindings.findChildViewById(rootView, id);
+      if (RecyclerViewListFav == null) {
         break missingId;
       }
 
-      id = R.id.searchView;
-      SearchView searchView = ViewBindings.findChildViewById(rootView, id);
-      if (searchView == null) {
-        break missingId;
-      }
-
-      return new FragmentFavVehicleBinding((ConstraintLayout) rootView, recyclerViewListFav,
-          searchView);
+      return new FragmentFavVehicleBinding((ConstraintLayout) rootView, RecyclerViewListFav);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

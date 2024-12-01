@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,7 +13,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carmatch1.R;
-import com.google.android.material.imageview.ShapeableImageView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -25,10 +25,7 @@ public final class ItemVehicleFavBinding implements ViewBinding {
   public final ImageButton btnStartConversation;
 
   @NonNull
-  public final ImageButton heartIcon;
-
-  @NonNull
-  public final ShapeableImageView imgPhoto;
+  public final ImageView imgPhoto;
 
   @NonNull
   public final TextView txtBrand;
@@ -40,12 +37,10 @@ public final class ItemVehicleFavBinding implements ViewBinding {
   public final TextView txtPrice;
 
   private ItemVehicleFavBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageButton btnStartConversation, @NonNull ImageButton heartIcon,
-      @NonNull ShapeableImageView imgPhoto, @NonNull TextView txtBrand, @NonNull TextView txtModel,
-      @NonNull TextView txtPrice) {
+      @NonNull ImageButton btnStartConversation, @NonNull ImageView imgPhoto,
+      @NonNull TextView txtBrand, @NonNull TextView txtModel, @NonNull TextView txtPrice) {
     this.rootView = rootView;
     this.btnStartConversation = btnStartConversation;
-    this.heartIcon = heartIcon;
     this.imgPhoto = imgPhoto;
     this.txtBrand = txtBrand;
     this.txtModel = txtModel;
@@ -85,14 +80,8 @@ public final class ItemVehicleFavBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.heartIcon;
-      ImageButton heartIcon = ViewBindings.findChildViewById(rootView, id);
-      if (heartIcon == null) {
-        break missingId;
-      }
-
       id = R.id.imgPhoto;
-      ShapeableImageView imgPhoto = ViewBindings.findChildViewById(rootView, id);
+      ImageView imgPhoto = ViewBindings.findChildViewById(rootView, id);
       if (imgPhoto == null) {
         break missingId;
       }
@@ -115,8 +104,8 @@ public final class ItemVehicleFavBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemVehicleFavBinding((ConstraintLayout) rootView, btnStartConversation, heartIcon,
-          imgPhoto, txtBrand, txtModel, txtPrice);
+      return new ItemVehicleFavBinding((ConstraintLayout) rootView, btnStartConversation, imgPhoto,
+          txtBrand, txtModel, txtPrice);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
