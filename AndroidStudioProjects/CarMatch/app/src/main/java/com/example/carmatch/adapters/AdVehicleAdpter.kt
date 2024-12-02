@@ -36,21 +36,20 @@ class AdVehiclesAdapter(
             val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
             
             if (vehicle != null && user != null) {
-                // Configurar informações básicas do veículo e anunciante
+            
                 binding.vehicleModel.text = vehicle.model
                 binding.vehiclePrice.text = "R$ ${vehicle.price}"
                 binding.userName.text = "Anunciante: ${user.name}"
                 binding.vehicleLocation.text = "Localização: ${user.city}"
                 
-                // Configurar informações adicionais do veículo
+      
                 binding.vehicleYear.text = "Ano: ${vehicle.year}"
                 binding.vehicleFuelType.text = "Combustível: ${vehicle.fuelType}"
                 binding.vehicleCondition.text = "Condição: ${vehicle.condition}"
                 binding.vehicleKm.text = "KM: ${vehicle.km}"
                 binding.vehicleDescription.text = "Descrição: ${vehicle.description}"
             }
-            
-            // Configurar imagens no ViewPager2
+          
             val storage = FirebaseStorage.getInstance()
             val imageUrls = mutableListOf<String>()
             
@@ -88,8 +87,7 @@ class AdVehiclesAdapter(
                         binding.heartIcon.setColorFilter(binding.root.context.getColor(android.R.color.darker_gray))
                     }
                 }
-            
-            // Configuração do clique no ícone de favoritos
+       
             binding.heartIcon.setOnClickListener {
                 firestore.collection("favVehicle")
                     .whereEqualTo("idVehicle", adVehicle.idVehicle)
@@ -110,7 +108,7 @@ class AdVehiclesAdapter(
                                     ).show()
                                 }
                         } else {
-                            // Adicionar aos favoritos
+                         
                             val favVehicle = hashMapOf(
                                 "idVehicle" to adVehicle.idVehicle,
                                 "idAd" to adVehicle.idAd,
@@ -130,7 +128,6 @@ class AdVehiclesAdapter(
                     }
             }
             
-            // Configurar o clique no botão "Ver mais"
             binding.tvViewMore.setOnClickListener {
                 if (binding.additionalInfoLayout.visibility == View.GONE) {
                     binding.additionalInfoLayout.visibility = View.VISIBLE
@@ -140,8 +137,7 @@ class AdVehiclesAdapter(
                     binding.tvViewMore.text = "Ver mais"
                 }
             }
-            
-            // Configuração do clique no botão de conversa
+           
             binding.btnStartConversation.setOnClickListener {
                 itemClickListener.onItemClick(adVehicle)
             }

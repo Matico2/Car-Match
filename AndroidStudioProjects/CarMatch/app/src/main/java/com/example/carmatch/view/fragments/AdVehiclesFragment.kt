@@ -54,8 +54,10 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
     
     override fun onStart() {
         super.onStart()
+        Log.d("Firestore", "Iniciando carregamento de anúncios...")
         loadAds()
     }
+    
     
     private fun loadAds() {
         val currentUserId = firebaseAuth.currentUser?.uid ?: return
@@ -68,6 +70,7 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
                 }
                 if (querySnapshot != null) {
                     listAd.clear()
+                    filteredListAd.clear()
                     querySnapshot.documents.forEach { document ->
                         val ad = document.toObject(AdVehicle::class.java)
                         if (ad != null && ad.idUser != currentUserId) {
@@ -75,9 +78,17 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
                             loadVehicleAndUser(ad)
                         }
                     }
+                    Log.d("Firestore", "Anúncios carregados: ${listAd.size}")
+                    // Atualiza o adaptador caso nenhum anúncio tenha sido carregado
+                    if (listAd.isEmpty()) {
+                        Log.d("Firestore", "Nenhum anúncio disponível.")
+                        adVehiclesAdapter.notifyDataSetChanged()
+                    }
                 }
             }
     }
+    
+    
     
     private fun loadVehicleAndUser(ad: AdVehicle) {
         firestore.collection("vehicle").document(ad.idVehicle).get()
@@ -90,16 +101,29 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
                             val user = userDoc.toObject(User::class.java)
                             if (user != null) {
                                 listUser.add(user)
+                                Log.d("Firestore", "Veículo carregado: ${vehicle.vehicleId}")
+                                Log.d("Firestore", "Usuário carregado: ${user.idUser}")
                                 if (listAd.size == listUser.size && listAd.size == listVehicle.size) {
                                     filteredListAd.clear()
-                                    filteredListAd.addAll(listAd) // Inicialmente, mostrar todos
+                                    filteredListAd.addAll(listAd)
                                     adVehiclesAdapter.notifyDataSetChanged()
+                                    Log.d("Firestore", "Anúncios exibidos: ${filteredListAd.size}")
                                 }
                             }
                         }
+                } else {
+                    Log.w("Firestore", "Veículo não encontrado para o anúncio: ${ad.idAd}")
+                    // Remova o anúncio correspondente da lista
+                    listAd.remove(ad)
+                    filteredListAd.clear()
+                    filteredListAd.addAll(listAd)
+                    adVehiclesAdapter.notifyDataSetChanged()
                 }
             }
     }
+    
+    
+    
     fun showSelectedVehicle(vehicleId: String) {
         val selectedAd = listAd.find { ad -> ad.idVehicle == vehicleId }
         if (selectedAd != null) {
@@ -115,8 +139,7 @@ class AdVehiclesFragment : Fragment(), AdVehiclesAdapter.OnItemClickListener {
     private fun filterList(query: String) {
         filteredListAd.clear()
         val lowerCaseQuery = query.lowercase()
-        
-        // Filtrar por modelo do veículo ou nome do usuário
+     
         for (ad in listAd) {
             val vehicle = listVehicle.find { it.vehicleId == ad.idVehicle }
             val user = listUser.find { it.idUser == ad.idUser }
