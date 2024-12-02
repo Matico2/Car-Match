@@ -1,5 +1,6 @@
 package com.example.carmatch.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -16,9 +17,11 @@ class MensagemAdapter(
     private var listMensagem = emptyList<Menssage>()
     
     fun addList(list: List<Menssage>) {
+        Log.d("MensagemAdapter", "Lista de mensagens atualizada: ${list.size} mensagens.")
         listMensagem = list
         notifyDataSetChanged()
     }
+    
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == Constants.TYPE_SEND) {
@@ -33,20 +36,15 @@ class MensagemAdapter(
         when (holder) {
             is MensagensSendViewHolder -> {
                 holder.bind(mensagem)
-                holder.itemView.setOnLongClickListener {
-                    onMessageLongClick(mensagem)
-                    true
-                }
+                Log.d("MensagemAdapter", "Mensagem enviada: ${mensagem.text}")
             }
             is MensagensDestViewHolder -> {
                 holder.bind(mensagem)
-                holder.itemView.setOnLongClickListener {
-                    onMessageLongClick(mensagem)
-                    true
-                }
+                Log.d("MensagemAdapter", "Mensagem recebida: ${mensagem.text}")
             }
         }
     }
+    
     
     override fun getItemCount(): Int = listMensagem.size
     
@@ -59,8 +57,6 @@ class MensagemAdapter(
             Constants.TYPE_DEST
         }
     }
-    
-    
     
     class MensagensSendViewHolder(
         private val binding: ItemMensagemSendBinding

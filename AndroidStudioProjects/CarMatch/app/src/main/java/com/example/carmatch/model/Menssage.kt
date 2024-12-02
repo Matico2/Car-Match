@@ -8,7 +8,7 @@ data class Menssage(
     val senderId: String = "",
     val receiverId: String = "",
     val text: String = "",
-    val idChat: String = "",
+    val idChat  : String = "",
     @ServerTimestamp
     val timestamp: Date? = null
 )
