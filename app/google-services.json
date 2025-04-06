@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "883450185865",
+    "project_id": "car-match-b5b86",
+    "storage_bucket": "car-match-b5b86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883450185865:android:7c789c89c9258aebc59e58",
+        "android_client_info": {
+          "package_name": "com.example.carmatch1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA6lBy_jm8itmHCCGRfHRA7DjgQcLIGPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

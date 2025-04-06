@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item_Profile"
+        android:icon="@drawable/profile_icon"
+        android:title="@string/profile"
+        app:showAsAction="always"
+        android:iconTint="@color/colorDarkBlue"/>
+    <item
+        android:id="@+id/item_Vehicle"
+        android:icon="@drawable/vehicle_icon"
+        android:title="@string/vehicles"
+        app:showAsAction="always"
+        android:iconTint="@color/colorDarkBlue"/>
+    <item
+        android:id="@+id/item_Fav"
+        android:icon="@drawable/like"
+        android:title="@string/fav"
+        app:showAsAction="always"
+        android:iconTint="@color/colorDarkBlue"/>
+    <item
+        android:id="@+id/item_Chat"
+        android:icon="@drawable/chat"
+        android:title="@string/Chat"
+        app:showAsAction="always"
+        android:iconTint="@color/colorDarkBlue"/>
+</menu>

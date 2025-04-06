@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <style name="Theme.CarMatch" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorVibrantOrange</item>
+        <item name="colorPrimaryVariant">@color/colorLightOrange</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/colorLightOrange</item>
+        <item name="colorSecondaryVariant">@color/colorLightOrange</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="toolbarStyle">@style/CustomToolbar</item>
+    </style>
+
+
+    <style name="CustomToolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="titleTextColor">@color/colorDarkBlue</item>
+        <item name="subtitleTextColor">@color/colorDarkBlue</item>
+        <item name="navigationIconTint">@color/colorDarkBlue</item>
+        <item name="android:tint">@color/colorDarkBlue</item>
+        <item name="itemBackground">@color/colorDarkBlue </item>
+        <item name="android:textColorPrimary">@color/colorDarkBlue</item>
+        <item name="android:actionMenuTextColor">@color/colorDarkBlue</item>
+    </style>
+
+    <!-- Circle style for specific elements -->
+    <style name="Circle">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Theme without ActionBar -->
+    <style name="Theme.CarMatch.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+</resources>
